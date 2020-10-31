@@ -18,9 +18,6 @@ CREATE OR REPLACE FUNCTION cadastrar_generico(nome_tabela varchar, campos json, 
             WHERE table_name ilike nome_tabela and is_nullable ilike 'NO' and
                   not column_name = ANY(forbidden_fields);
 
-            raise notice '======== %', forbidden_fields;
-            raise notice '======== %', required_fields;
-
             FOREACH campo IN ARRAY required_fields LOOP
                 IF (campos->campo) IS NULL THEN
                     raise notice '[%] nao pode ser vazio', campo;
@@ -42,20 +39,17 @@ CREATE OR REPLACE FUNCTION cadastrar_generico(nome_tabela varchar, campos json, 
             WHERE table_name ilike nome_tabela and is_nullable ilike 'YES' and
                   not column_name = ANY(forbidden_fields);
 
-            FOREACH campo IN ARRAY nullable_fields LOOP
-                IF (campos->campo) IS NULL THEN
---                     SELECT campos::jsonb || FORMAT('{"%s": %s}', campo, 'null')::jsonb INTO campos;
---                 ELSE
-                    keys := array_append(keys, campo);
-                    values := array_append(values, 'null');
-                ELSE
-                    keys := array_append(keys, campo);
-                    values := array_append(values, (campos->campo)::text);
-                end if;
-            END LOOP;
-
---             select string_agg(key, ', '), string_agg(value::text, ', ') INTO keys_str, values_str
---             from json_each(campos);
+            IF array_length(nullable_fields, 1) > 0 THEN
+                FOREACH campo IN ARRAY nullable_fields LOOP
+                    IF (campos->campo) IS NULL THEN
+                        keys := array_append(keys, campo);
+                        values := array_append(values, 'null');
+                    ELSE
+                        keys := array_append(keys, campo);
+                        values := array_append(values, (campos->campo)::text);
+                    end if;
+                END LOOP;
+            end if;
 
             keys_str := array_to_string(keys, ', ');
             values_str := array_to_string(values, ', ');
@@ -81,6 +75,7 @@ CREATE OR REPLACE FUNCTION cadastrar(nome_tabela varchar, campos json)
         DECLARE
             forbidden_fields_by_table json := '{"SOCIO": ["dt_falecimento", "cod_socio"],' ||
                                               '"BENFEITOR": ["cod_benfeitor"],' ||
+                                              '"TIPO_EVENTO": ["cod_tipo_evento"],' ||
                                               '"MEDICO": ["cod_medico"],' ||
                                               '"ESPECIALIDADE": ["cod_especialidade"],' ||
                                               '"VOLUNTARIO": ["cod_voluntario"],' ||
