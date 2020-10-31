@@ -17,7 +17,8 @@ RETURNS int as $$
     END;
 $$ language plpgsql;
 
-create or replace function doar_para_evento(nome_evento varchar, cpf_benfeitor varchar, valor_doado float)
+drop function doar_para_evento(nome_evento varchar, cpf_benfeitor varchar, valor_doado float);
+create or replace function doar_para_evento(nome_evento varchar, cpf_benfeitor varchar, valor_doacao float)
 RETURNS table (n text) as $$
 
     DECLARE
@@ -27,12 +28,14 @@ RETURNS table (n text) as $$
         id_benfeitor := buscar_cod_benfeitor(cpf_benfeitor);
         id_evento := buscar_cod_evento(nome_evento);
 
-        IF valor_doado <= 0 THEN
+        IF valor_doacao <= 0 THEN
             RETURN QUERY SELECT 'O valor doado não pode ser menor ou igual a zero.';
             RETURN;
         end if;
 
-        UPDATE evento SET arrecadacao = arrecadacao + valor_doado WHERE cod_evento=id_evento;
+        INSERT INTO benfeitor_evento(cod_benfeitor, cod_evento, valor_doado) values (id_benfeitor, id_evento, valor_doacao);
+
+        UPDATE evento SET arrecadacao = arrecadacao + valor_doacao WHERE cod_evento=id_evento;
         RETURN QUERY SELECT 'Doação de valor realizada com sucesso!';
         RETURN;
 
@@ -41,9 +44,9 @@ RETURNS table (n text) as $$
                 RETURN QUERY SELECT SQLERRM;
                 RETURN;
             WHEN others THEN
-                RETURN QUERY SELECT CONCAT('Erro durante o cadastro -> ', SQLERRM);
+                RETURN QUERY SELECT CONCAT('Erro durante o cadastro da doacao -> ', SQLERRM);
                 RETURN;
-    END;
+    END
 $$ language plpgsql;
 
 create or replace function buscar_cod_tipo_evento(nome_tipo_evento varchar)
@@ -151,14 +154,17 @@ $$
             message='A arrecadação não pode ser negativa, insira uma quantidade maior ou igual a zero';
         ELSEIF (NEW.arrecadacao != OLD.arrecadacao OR NEW.custo != OLD.custo) AND
                NEW.dt_fim IS NOT NULL AND NEW.dt_fim < current_date THEN
+                   raise notice 'old dt %', old.dt_fim;
+                   raise notice 'new dt %', new.dt_fim;
             raise ERROR_IN_ASSIGNMENT using
-            message='Eventos finalizados não podem ter custos ou arrecadações modificados';
+            message='Este evento foi finalizado em ' || NEW.dt_fim
+                || '. Eventos finalizados não podem ter custos ou arrecadações modificados.' ;
         end if;
 
         NEW.nome := btrim(NEW.nome);
 
         RETURN NEW;
-    END;
+    END
 $$ language plpgsql;
 
 CREATE TRIGGER trigger_evento BEFORE INSERT or UPDATE on
@@ -189,5 +195,25 @@ SELECT multi_cadastrar('TIPO_EVENTO', json '[
     }
 ]');
 
-select *
-from tipo_evento;
+select * from tipo_evento;
+select * from evento;
+select buscar_cod_evento('1 feijoada aprepi');
+select criar_evento('1 Feijoada APREPI', 'feijoada');
+select criar_evento(
+    'Bazar Beneficente APREPI 2020',
+    'bazar',
+    0,
+    0,
+    '2020-11-16',
+    '2020-11-20');
+
+select * from benfeitor;
+select * from benfeitor_evento;
+
+select doar_para_evento('bazar beneficente aprepi 2020', '67735947828', 1000);
+select doar_para_evento('bazar beneficente aprepi 2020', '895.976.010-28', 1000);
+
+select atualizar_data_final_evento('1 feijoada aprepi');
+
+select adicionar_custo_evento('1 feijoada aprepi', 350);
+

@@ -114,6 +114,42 @@ CREATE TABLE EVENTO(
 	dt_fim date null
 );
 
+CREATE TABLE BENFEITOR_EVENTO(
+    cod_benfeitor_evento serial primary key,
+    cod_benfeitor int references benfeitor(cod_benfeitor),
+    cod_evento int references evento(cod_evento),
+    valor_doado float not null
+);
+
+CREATE TABLE VOLUNTARIO(
+    cod_voluntario serial primary key,
+    nome varchar(50) not null,
+    dt_nasc date not null,
+    cpf varchar(14) unique not null,
+    telefone varchar(15) null
+);
+
+CREATE TABLE FUNCAO(
+    cod_funcao serial primary key,
+    nome varchar(32) not null,
+    descricao text not null
+);
+
+CREATE TABLE VOLUNTARIO_FUNCAO(
+    cod_voluntario_funcao serial primary key,
+    cod_voluntario int references voluntario(cod_voluntario),
+    cod_evento int references evento(cod_evento),
+    cod_funcao int references funcao(cod_funcao)
+);
+
+CREATE TABLE CONSULTA(
+    cod_consulta serial primary key,
+    cod_socio int references socio(cod_socio),
+    cod_medico_especialidade int references medico_especialidade(cod_medico_especialidade),
+    dt_consulta date not null,
+    hora_consulta time not null
+);
+
 select quantidade from alimento;
 
 SELECT (('{"arz": "1"}'::json)->>'arz')::int;

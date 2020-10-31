@@ -796,14 +796,12 @@ true posixrules
       <ObjectId>16394</ObjectId>
       <Comment>Banco de dados do trabalho final de BD II</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2291</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2531</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16412|16414|1
 sequence|table|16435|16437|1
 sequence|table|16443|16445|1
 sequence|table|16457|16459|1
-sequence|table|16708|16710|1
-sequence|table|16719|16721|1
 sequence|table|16481|16483|1
 sequence|table|16491|16493|1
 sequence|table|16505|16507|1
@@ -811,6 +809,13 @@ sequence|table|16538|16540|1
 sequence|table|16596|16598|1
 sequence|table|16608|16610|1
 sequence|table|16616|16618|1
+sequence|table|16708|16710|1
+sequence|table|16719|16721|1
+sequence|table|16743|16745|1
+sequence|table|16762|16764|1
+sequence|table|16772|16774|1
+sequence|table|16783|16785|1
+sequence|table|16814|16816|1
 </Relations>
     </database>
     <database id="4" parent="1" name="postgres">
@@ -895,7 +900,7 @@ sequence|table|16616|16618|1
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2292</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2532</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="25" parent="3" name="heap">
@@ -977,73 +982,103 @@ sequence|table|16616|16618|1
       <StateNumber>946</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="39" parent="24" name="cesta_basica_cod_item_cesta_seq">
+    <sequence id="39" parent="24" name="benfeitor_evento_cod_benfeitor_evento_seq">
+      <ObjectId>16743</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2335</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="40" parent="24" name="cesta_basica_cod_item_cesta_seq">
       <ObjectId>16538</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1397</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="40" parent="24" name="doacao_cod_doacao_seq">
+    <sequence id="41" parent="24" name="consulta_cod_consulta_seq">
+      <ObjectId>16814</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2440</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="42" parent="24" name="doacao_cod_doacao_seq">
       <ObjectId>16491</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>947</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="41" parent="24" name="especialidade_cod_especialidade_seq">
+    <sequence id="43" parent="24" name="especialidade_cod_especialidade_seq">
       <ObjectId>16608</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1826</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="42" parent="24" name="evento_cod_evento_seq">
+    <sequence id="44" parent="24" name="evento_cod_evento_seq">
       <ObjectId>16719</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2223</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="43" parent="24" name="item_doacao_cod_item_doacao_seq">
+    <sequence id="45" parent="24" name="funcao_cod_funcao_seq">
+      <ObjectId>16772</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2350</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="46" parent="24" name="item_doacao_cod_item_doacao_seq">
       <ObjectId>16505</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>948</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="44" parent="24" name="item_recebimento_cod_item_recebimento_seq">
+    <sequence id="47" parent="24" name="item_recebimento_cod_item_recebimento_seq">
       <ObjectId>16457</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>745</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="45" parent="24" name="medico_cod_medico_seq">
+    <sequence id="48" parent="24" name="medico_cod_medico_seq">
       <ObjectId>16596</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1825</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="46" parent="24" name="medico_especialidade_cod_medico_especialidade_seq">
+    <sequence id="49" parent="24" name="medico_especialidade_cod_medico_especialidade_seq">
       <ObjectId>16616</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1827</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="47" parent="24" name="recebimento_cod_recebimento_seq">
+    <sequence id="50" parent="24" name="recebimento_cod_recebimento_seq">
       <ObjectId>16443</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>742</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="48" parent="24" name="socio_cod_socio_seq">
+    <sequence id="51" parent="24" name="socio_cod_socio_seq">
       <ObjectId>16412</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>587</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="49" parent="24" name="tipo_evento_cod_tipo_evento_seq">
+    <sequence id="52" parent="24" name="tipo_evento_cod_tipo_evento_seq">
       <ObjectId>16708</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2221</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <object-type id="50" parent="24" name="dm_cpf">
+    <sequence id="53" parent="24" name="voluntario_cod_voluntario_seq">
+      <ObjectId>16762</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2349</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="54" parent="24" name="voluntario_funcao_cod_voluntario_funcao_seq">
+      <ObjectId>16783</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2351</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <object-type id="55" parent="24" name="dm_cpf">
       <ObjectId>16397</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>567</StateNumber>
@@ -1052,89 +1087,126 @@ sequence|table|16616|16618|1
       <BaseTypeId>1043</BaseTypeId>
       <SubCategory>string</SubCategory>
     </object-type>
-    <table id="51" parent="24" name="alimento">
+    <table id="56" parent="24" name="alimento">
       <ObjectId>16437</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1142</StateNumber>
     </table>
-    <table id="52" parent="24" name="benfeitor">
+    <table id="57" parent="24" name="benfeitor">
       <ObjectId>16483</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>947</StateNumber>
     </table>
-    <table id="53" parent="24" name="cesta_basica">
+    <table id="58" parent="24" name="benfeitor_evento">
+      <ObjectId>16745</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2335</StateNumber>
+    </table>
+    <table id="59" parent="24" name="cesta_basica">
       <ObjectId>16540</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1397</StateNumber>
     </table>
-    <table id="54" parent="24" name="doacao">
+    <table id="60" parent="24" name="consulta">
+      <ObjectId>16816</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2440</StateNumber>
+    </table>
+    <table id="61" parent="24" name="doacao">
       <ObjectId>16493</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>947</StateNumber>
     </table>
-    <table id="55" parent="24" name="especialidade">
+    <table id="62" parent="24" name="especialidade">
       <ObjectId>16610</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1827</StateNumber>
     </table>
-    <table id="56" parent="24" name="evento">
+    <table id="63" parent="24" name="evento">
       <ObjectId>16721</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2223</StateNumber>
     </table>
-    <table id="57" parent="24" name="item_doacao">
+    <table id="64" parent="24" name="funcao">
+      <ObjectId>16774</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2351</StateNumber>
+    </table>
+    <table id="65" parent="24" name="item_doacao">
       <ObjectId>16507</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1165</StateNumber>
     </table>
-    <table id="58" parent="24" name="item_recebimento">
+    <table id="66" parent="24" name="item_recebimento">
       <ObjectId>16459</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1157</StateNumber>
     </table>
-    <table id="59" parent="24" name="medico">
+    <table id="67" parent="24" name="medico">
       <ObjectId>16598</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1827</StateNumber>
     </table>
-    <table id="60" parent="24" name="medico_especialidade">
+    <table id="68" parent="24" name="medico_especialidade">
       <ObjectId>16618</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1827</StateNumber>
     </table>
-    <table id="61" parent="24" name="recebimento">
+    <table id="69" parent="24" name="recebimento">
       <ObjectId>16445</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>742</StateNumber>
     </table>
-    <table id="62" parent="24" name="required_fields">
+    <table id="70" parent="24" name="required_fields">
       <ObjectId>16429</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>686</StateNumber>
     </table>
-    <table id="63" parent="24" name="socio">
+    <table id="71" parent="24" name="socio">
       <ObjectId>16414</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>596</StateNumber>
     </table>
-    <table id="64" parent="24" name="tipo_evento">
+    <table id="72" parent="24" name="tipo_evento">
       <ObjectId>16710</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2223</StateNumber>
     </table>
-    <view id="65" parent="24" name="view_doacoes_feitas">
+    <table id="73" parent="24" name="voluntario">
+      <ObjectId>16764</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2351</StateNumber>
+    </table>
+    <table id="74" parent="24" name="voluntario_funcao">
+      <ObjectId>16785</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2351</StateNumber>
+    </table>
+    <view id="75" parent="24" name="view_doacoes_feitas">
       <ObjectId>16642</ObjectId>
       <SourceTextLength>283</SourceTextLength>
       <Owner>postgres</Owner>
       <StateNumber>1845</StateNumber>
     </view>
-    <view id="66" parent="24" name="view_doacoes_recebidas">
+    <view id="76" parent="24" name="view_doacoes_recebidas">
       <ObjectId>16638</ObjectId>
       <SourceTextLength>309</SourceTextLength>
       <Owner>postgres</Owner>
       <StateNumber>1842</StateNumber>
     </view>
-    <routine id="67" parent="24" name="alocar_medico_em_especialidade">
+    <routine id="77" parent="24" name="adicionar_custo_evento">
+      <ObjectId>16742</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>719</SourceTextLength>
+      <StateNumber>2308</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_evento character varying, valor_custo double precision</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(n text)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="78" parent="24" name="alocar_medico_em_especialidade">
       <ObjectId>16637</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>665</SourceTextLength>
@@ -1146,7 +1218,19 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="68" parent="24" name="atualizar">
+    <routine id="79" parent="24" name="alocar_voluntario_em_evento">
+      <ObjectId>16810</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>1216</SourceTextLength>
+      <StateNumber>2405</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_evento character varying, cpf_voluntario character varying, nome_funcao character varying</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(n text)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="80" parent="24" name="atualizar">
       <ObjectId>16588</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>3153</SourceTextLength>
@@ -1164,7 +1248,19 @@ sequence|table|16616|16618|1
 16662=X/10
 </Acl>
     </routine>
-    <routine id="69" parent="24" name="atualizar_generico">
+    <routine id="81" parent="24" name="atualizar_data_final_evento">
+      <ObjectId>16741</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>561</SourceTextLength>
+      <StateNumber>2302</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_evento character varying, data_fim date DEFAULT CURRENT_DATE</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(n text)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="82" parent="24" name="atualizar_generico">
       <ObjectId>16581</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1906</SourceTextLength>
@@ -1176,7 +1272,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="70" parent="24" name="buscar_chave_valor">
+    <routine id="83" parent="24" name="buscar_chave_valor">
       <ObjectId>16586</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1101</SourceTextLength>
@@ -1188,7 +1284,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="71" parent="24" name="buscar_cod_alimento">
+    <routine id="84" parent="24" name="buscar_cod_alimento">
       <ObjectId>16552</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>735</SourceTextLength>
@@ -1200,7 +1296,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="72" parent="24" name="buscar_cod_benfeitor">
+    <routine id="85" parent="24" name="buscar_cod_benfeitor">
       <ObjectId>16523</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>402</SourceTextLength>
@@ -1212,7 +1308,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="73" parent="24" name="buscar_cod_especialidade">
+    <routine id="86" parent="24" name="buscar_cod_especialidade">
       <ObjectId>16635</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>792</SourceTextLength>
@@ -1224,7 +1320,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="74" parent="24" name="buscar_cod_evento">
+    <routine id="87" parent="24" name="buscar_cod_evento">
       <ObjectId>16735</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>713</SourceTextLength>
@@ -1236,7 +1332,19 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="75" parent="24" name="buscar_cod_medico">
+    <routine id="88" parent="24" name="buscar_cod_funcao">
+      <ObjectId>16809</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>715</SourceTextLength>
+      <StateNumber>2408</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_funcao character varying</ArgumentsDefinition>
+      <ResultsDefinition>integer</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Rows>0.0</Rows>
+    </routine>
+    <routine id="89" parent="24" name="buscar_cod_medico">
       <ObjectId>16636</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>713</SourceTextLength>
@@ -1248,7 +1356,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="76" parent="24" name="buscar_cod_socio">
+    <routine id="90" parent="24" name="buscar_cod_socio">
       <ObjectId>16475</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>342</SourceTextLength>
@@ -1260,7 +1368,31 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="77" parent="24" name="cadastrar">
+    <routine id="91" parent="24" name="buscar_cod_tipo_evento">
+      <ObjectId>16740</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>777</SourceTextLength>
+      <StateNumber>2293</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_tipo_evento character varying</ArgumentsDefinition>
+      <ResultsDefinition>integer</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Rows>0.0</Rows>
+    </routine>
+    <routine id="92" parent="24" name="buscar_cod_voluntario">
+      <ObjectId>16806</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>366</SourceTextLength>
+      <StateNumber>2385</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>cpf_voluntario character varying</ArgumentsDefinition>
+      <ResultsDefinition>integer</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Rows>0.0</Rows>
+    </routine>
+    <routine id="93" parent="24" name="cadastrar">
       <ObjectId>16411</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>3046</SourceTextLength>
@@ -1277,7 +1409,7 @@ sequence|table|16616|16618|1
 16662=X/10
 </Acl>
     </routine>
-    <routine id="78" parent="24" name="cadastrar_generico">
+    <routine id="94" parent="24" name="cadastrar_generico">
       <ObjectId>16427</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2840</SourceTextLength>
@@ -1289,7 +1421,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="79" parent="24" name="cadastrar_socio">
+    <routine id="95" parent="24" name="cadastrar_socio">
       <ObjectId>16410</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2738</SourceTextLength>
@@ -1301,7 +1433,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="80" parent="24" name="cadastrar_wrapper">
+    <routine id="96" parent="24" name="cadastrar_wrapper">
       <ObjectId>16428</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1816</SourceTextLength>
@@ -1313,7 +1445,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="81" parent="24" name="criar_evento">
+    <routine id="97" parent="24" name="criar_evento">
       <ObjectId>16737</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>661</SourceTextLength>
@@ -1325,7 +1457,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="82" parent="24" name="deletar">
+    <routine id="98" parent="24" name="deletar">
       <ObjectId>16590</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1861</SourceTextLength>
@@ -1337,7 +1469,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="83" parent="24" name="deletar_generico">
+    <routine id="99" parent="24" name="deletar_generico">
       <ObjectId>16589</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>992</SourceTextLength>
@@ -1349,19 +1481,19 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="84" parent="24" name="doar_para_evento">
-      <ObjectId>16736</ObjectId>
+    <routine id="100" parent="24" name="doar_para_evento">
+      <ObjectId>16761</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>817</SourceTextLength>
-      <StateNumber>2233</StateNumber>
+      <SourceTextLength>954</SourceTextLength>
+      <StateNumber>2343</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
-      <ArgumentsDefinition>nome_evento character varying, cpf_benfeitor character varying, valor_doado double precision</ArgumentsDefinition>
+      <ArgumentsDefinition>nome_evento character varying, cpf_benfeitor character varying, valor_doacao double precision</ArgumentsDefinition>
       <ResultsDefinition>TABLE(n text)</ResultsDefinition>
       <LanguageName>plpgsql</LanguageName>
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="85" parent="24" name="encaminhar_tabela">
+    <routine id="101" parent="24" name="encaminhar_tabela">
       <ObjectId>16537</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>3004</SourceTextLength>
@@ -1373,7 +1505,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="86" parent="24" name="fc_trigger_alimento">
+    <routine id="102" parent="24" name="fc_trigger_alimento">
       <ObjectId>16479</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>873</SourceTextLength>
@@ -1384,7 +1516,18 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="87" parent="24" name="fc_trigger_benfeitor">
+    <routine id="103" parent="24" name="fc_trigger_alocacao_evento">
+      <ObjectId>16811</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>480</SourceTextLength>
+      <StateNumber>2420</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Rows>0.0</Rows>
+    </routine>
+    <routine id="104" parent="24" name="fc_trigger_benfeitor">
       <ObjectId>16525</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>92</SourceTextLength>
@@ -1395,7 +1538,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="88" parent="24" name="fc_trigger_cesta_basica">
+    <routine id="105" parent="24" name="fc_trigger_cesta_basica">
       <ObjectId>16555</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>241</SourceTextLength>
@@ -1406,18 +1549,40 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="89" parent="24" name="fc_trigger_evento">
-      <ObjectId>16738</ObjectId>
+    <routine id="106" parent="24" name="fc_trigger_consulta">
+      <ObjectId>16832</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>746</SourceTextLength>
-      <StateNumber>2248</StateNumber>
+      <SourceTextLength>4348</SourceTextLength>
+      <StateNumber>2524</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ResultsDefinition>trigger</ResultsDefinition>
       <LanguageName>plpgsql</LanguageName>
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="90" parent="24" name="fc_trigger_socio">
+    <routine id="107" parent="24" name="fc_trigger_cpf">
+      <ObjectId>16807</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>92</SourceTextLength>
+      <StateNumber>2378</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Rows>0.0</Rows>
+    </routine>
+    <routine id="108" parent="24" name="fc_trigger_evento">
+      <ObjectId>16738</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>927</SourceTextLength>
+      <StateNumber>2330</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Rows>0.0</Rows>
+    </routine>
+    <routine id="109" parent="24" name="fc_trigger_socio">
       <ObjectId>16421</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>194</SourceTextLength>
@@ -1428,7 +1593,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="91" parent="24" name="formatar_alimentos">
+    <routine id="110" parent="24" name="formatar_alimentos">
       <ObjectId>16536</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1348</SourceTextLength>
@@ -1440,7 +1605,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="92" parent="24" name="formatar_alimentos">
+    <routine id="111" parent="24" name="formatar_alimentos">
       <ObjectId>16534</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1323</SourceTextLength>
@@ -1452,7 +1617,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="93" parent="24" name="informar_falecimento_socio">
+    <routine id="112" parent="24" name="informar_falecimento_socio">
       <ObjectId>16595</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>372</SourceTextLength>
@@ -1464,7 +1629,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="94" parent="24" name="inserir_item_cesta_basica">
+    <routine id="113" parent="24" name="inserir_item_cesta_basica">
       <ObjectId>16554</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1067</SourceTextLength>
@@ -1476,7 +1641,19 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="95" parent="24" name="montar_cesta_basica">
+    <routine id="114" parent="24" name="marcar_consulta">
+      <ObjectId>16837</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>1303</SourceTextLength>
+      <StateNumber>2530</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_medico character varying, nome_especialidade character varying, cpf_socio character varying, data date, hora time without time zone</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(n text)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="115" parent="24" name="montar_cesta_basica">
       <ObjectId>16557</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>448</SourceTextLength>
@@ -1487,7 +1664,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="96" parent="24" name="multi_cadastrar">
+    <routine id="116" parent="24" name="multi_cadastrar">
       <ObjectId>16665</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>233</SourceTextLength>
@@ -1499,7 +1676,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="97" parent="24" name="realizar_doacao">
+    <routine id="117" parent="24" name="realizar_doacao">
       <ObjectId>16561</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>3857</SourceTextLength>
@@ -1511,7 +1688,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="98" parent="24" name="receber_doacao">
+    <routine id="118" parent="24" name="receber_doacao">
       <ObjectId>16558</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>4555</SourceTextLength>
@@ -1523,7 +1700,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="99" parent="24" name="relatorio_doacoes_feitas">
+    <routine id="119" parent="24" name="relatorio_doacoes_feitas">
       <ObjectId>16661</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2367</SourceTextLength>
@@ -1535,7 +1712,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="100" parent="24" name="relatorio_doacoes_recebidas">
+    <routine id="120" parent="24" name="relatorio_doacoes_recebidas">
       <ObjectId>16660</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2357</SourceTextLength>
@@ -1547,7 +1724,19 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
     </routine>
-    <routine id="101" parent="24" name="valida_cpf">
+    <routine id="121" parent="24" name="remover_voluntario_de_evento">
+      <ObjectId>16813</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>1329</SourceTextLength>
+      <StateNumber>2435</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nome_evento character varying, cpf_voluntario character varying</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(n text)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="122" parent="24" name="valida_cpf">
       <ObjectId>16395</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2102</SourceTextLength>
@@ -1559,7 +1748,7 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="102" parent="24" name="validador_cpf">
+    <routine id="123" parent="24" name="validador_cpf">
       <ObjectId>16420</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1409</SourceTextLength>
@@ -1571,12 +1760,12 @@ sequence|table|16616|16618|1
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <check id="103" parent="50" name="dm_cpf_check">
+    <check id="124" parent="55" name="dm_cpf_check">
       <ObjectId>16398</ObjectId>
       <StateNumber>567</StateNumber>
       <Predicate>valida_cpf(VALUE)</Predicate>
     </check>
-    <column id="104" parent="51" name="cod_alimento">
+    <column id="125" parent="56" name="cod_alimento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1584,55 +1773,55 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;alimento_cod_alimento_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="105" parent="51" name="nome">
+    <column id="126" parent="56" name="nome">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="106" parent="51" name="quantidade">
+    <column id="127" parent="56" name="quantidade">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>739</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="107" parent="51" name="descricao">
+    <column id="128" parent="56" name="descricao">
       <Position>4</Position>
       <DataType>varchar(128)|0s</DataType>
       <StateNumber>748</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="108" parent="51" name="unidade_de_medida">
+    <column id="129" parent="56" name="unidade_de_medida">
       <Position>5</Position>
       <DataType>varchar(2)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1139</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="109" parent="51" name="grandeza">
+    <column id="130" parent="56" name="grandeza">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1145</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="110" parent="51" name="alimento_pkey">
+    <index id="131" parent="56" name="alimento_pkey">
       <ObjectId>16441</ObjectId>
       <StateNumber>739</StateNumber>
       <ColNames>cod_alimento</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="111" parent="51" name="alimento_pkey">
+    <key id="132" parent="56" name="alimento_pkey">
       <ObjectId>16442</ObjectId>
       <StateNumber>739</StateNumber>
       <ColNames>cod_alimento</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>alimento_pkey</UnderlyingIndexName>
     </key>
-    <trigger id="112" parent="51" name="trigger_alimento">
+    <trigger id="133" parent="56" name="trigger_alimento">
       <ObjectId>16527</ObjectId>
       <StateNumber>1041</StateNumber>
       <Turn>before-row</Turn>
@@ -1640,7 +1829,7 @@ sequence|table|16616|16618|1
       <FireMode>origin</FireMode>
       <CallRoutineId>16479</CallRoutineId>
     </trigger>
-    <column id="113" parent="52" name="cod_benfeitor">
+    <column id="134" parent="57" name="cod_benfeitor">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1648,60 +1837,60 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;benfeitor_cod_benfeitor_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="114" parent="52" name="nome">
+    <column id="135" parent="57" name="nome">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="115" parent="52" name="dt_nasc">
+    <column id="136" parent="57" name="dt_nasc">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="116" parent="52" name="cpf">
+    <column id="137" parent="57" name="cpf">
       <Position>4</Position>
       <DataType>varchar(14)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="117" parent="52" name="telefone">
+    <column id="138" parent="57" name="telefone">
       <Position>5</Position>
       <DataType>varchar(15)|0s</DataType>
       <StateNumber>1001</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="118" parent="52" name="benfeitor_pkey">
+    <index id="139" parent="57" name="benfeitor_pkey">
       <ObjectId>16487</ObjectId>
       <StateNumber>946</StateNumber>
       <ColNames>cod_benfeitor</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="119" parent="52" name="benfeitor_cpf_key">
+    <index id="140" parent="57" name="benfeitor_cpf_key">
       <ObjectId>16489</ObjectId>
       <StateNumber>946</StateNumber>
       <ColNames>cpf</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="120" parent="52" name="benfeitor_pkey">
+    <key id="141" parent="57" name="benfeitor_pkey">
       <ObjectId>16488</ObjectId>
       <StateNumber>946</StateNumber>
       <ColNames>cod_benfeitor</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>benfeitor_pkey</UnderlyingIndexName>
     </key>
-    <key id="121" parent="52" name="benfeitor_cpf_key">
+    <key id="142" parent="57" name="benfeitor_cpf_key">
       <ObjectId>16490</ObjectId>
       <StateNumber>946</StateNumber>
       <ColNames>cpf</ColNames>
       <UnderlyingIndexName>benfeitor_cpf_key</UnderlyingIndexName>
     </key>
-    <trigger id="122" parent="52" name="trigger_benfeitor">
+    <trigger id="143" parent="57" name="trigger_benfeitor">
       <ObjectId>16526</ObjectId>
       <StateNumber>1019</StateNumber>
       <Turn>before-row</Turn>
@@ -1709,7 +1898,68 @@ sequence|table|16616|16618|1
       <FireMode>origin</FireMode>
       <CallRoutineId>16525</CallRoutineId>
     </trigger>
-    <column id="123" parent="53" name="cod_item_cesta">
+    <column id="144" parent="58" name="cod_benfeitor_evento">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2335</StateNumber>
+      <DefaultExpression>nextval(&apos;benfeitor_evento_cod_benfeitor_evento_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="145" parent="58" name="cod_benfeitor">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2335</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="146" parent="58" name="cod_evento">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2335</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="147" parent="58" name="valor_doado">
+      <Position>4</Position>
+      <DataType>double precision|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2335</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="148" parent="58" name="benfeitor_evento_pkey">
+      <ObjectId>16749</ObjectId>
+      <StateNumber>2335</StateNumber>
+      <ColNames>cod_benfeitor_evento</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="149" parent="58" name="benfeitor_evento_pkey">
+      <ObjectId>16750</ObjectId>
+      <StateNumber>2335</StateNumber>
+      <ColNames>cod_benfeitor_evento</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>benfeitor_evento_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="150" parent="58" name="benfeitor_evento_cod_benfeitor_fkey">
+      <ObjectId>16751</ObjectId>
+      <StateNumber>2335</StateNumber>
+      <ColNames>cod_benfeitor</ColNames>
+      <RefTableId>16483</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>benfeitor</RefTableName>
+      <RefKeyName>benfeitor_pkey</RefKeyName>
+      <RefColNames>cod_benfeitor</RefColNames>
+    </foreign-key>
+    <foreign-key id="151" parent="58" name="benfeitor_evento_cod_evento_fkey">
+      <ObjectId>16756</ObjectId>
+      <StateNumber>2335</StateNumber>
+      <ColNames>cod_evento</ColNames>
+      <RefTableId>16721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>evento</RefTableName>
+      <RefKeyName>evento_pkey</RefKeyName>
+      <RefColNames>cod_evento</RefColNames>
+    </foreign-key>
+    <column id="152" parent="59" name="cod_item_cesta">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1717,34 +1967,34 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;cesta_basica_cod_item_cesta_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="124" parent="53" name="cod_alimento">
+    <column id="153" parent="59" name="cod_alimento">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1397</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="125" parent="53" name="quantidade">
+    <column id="154" parent="59" name="quantidade">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1397</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="126" parent="53" name="cesta_basica_pkey">
+    <index id="155" parent="59" name="cesta_basica_pkey">
       <ObjectId>16544</ObjectId>
       <StateNumber>1397</StateNumber>
       <ColNames>cod_item_cesta</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="127" parent="53" name="cesta_basica_pkey">
+    <key id="156" parent="59" name="cesta_basica_pkey">
       <ObjectId>16545</ObjectId>
       <StateNumber>1397</StateNumber>
       <ColNames>cod_item_cesta</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>cesta_basica_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="128" parent="53" name="cesta_basica_cod_alimento_fkey">
+    <foreign-key id="157" parent="59" name="cesta_basica_cod_alimento_fkey">
       <ObjectId>16546</ObjectId>
       <StateNumber>1397</StateNumber>
       <ColNames>cod_alimento</ColNames>
@@ -1754,7 +2004,7 @@ sequence|table|16616|16618|1
       <RefKeyName>alimento_pkey</RefKeyName>
       <RefColNames>cod_alimento</RefColNames>
     </foreign-key>
-    <trigger id="129" parent="53" name="trigger_cesta_basica">
+    <trigger id="158" parent="59" name="trigger_cesta_basica">
       <ObjectId>16556</ObjectId>
       <StateNumber>1485</StateNumber>
       <Turn>before-row</Turn>
@@ -1762,7 +2012,83 @@ sequence|table|16616|16618|1
       <FireMode>origin</FireMode>
       <CallRoutineId>16555</CallRoutineId>
     </trigger>
-    <column id="130" parent="54" name="cod_doacao">
+    <column id="159" parent="60" name="cod_consulta">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2440</StateNumber>
+      <DefaultExpression>nextval(&apos;consulta_cod_consulta_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="160" parent="60" name="cod_socio">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2440</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="161" parent="60" name="cod_medico_especialidade">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2440</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="162" parent="60" name="dt_consulta">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2440</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="163" parent="60" name="hora_consulta">
+      <Position>5</Position>
+      <DataType>time|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2440</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <index id="164" parent="60" name="consulta_pkey">
+      <ObjectId>16820</ObjectId>
+      <StateNumber>2440</StateNumber>
+      <ColNames>cod_consulta</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="165" parent="60" name="consulta_pkey">
+      <ObjectId>16821</ObjectId>
+      <StateNumber>2440</StateNumber>
+      <ColNames>cod_consulta</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>consulta_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="166" parent="60" name="consulta_cod_socio_fkey">
+      <ObjectId>16822</ObjectId>
+      <StateNumber>2440</StateNumber>
+      <ColNames>cod_socio</ColNames>
+      <RefTableId>16414</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>socio</RefTableName>
+      <RefKeyName>socio_pkey</RefKeyName>
+      <RefColNames>cod_socio</RefColNames>
+    </foreign-key>
+    <foreign-key id="167" parent="60" name="consulta_cod_medico_especialidade_fkey">
+      <ObjectId>16827</ObjectId>
+      <StateNumber>2440</StateNumber>
+      <ColNames>cod_medico_especialidade</ColNames>
+      <RefTableId>16618</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>medico_especialidade</RefTableName>
+      <RefKeyName>medico_especialidade_pkey</RefKeyName>
+      <RefColNames>cod_medico_especialidade</RefColNames>
+    </foreign-key>
+    <trigger id="168" parent="60" name="trigger_consulta">
+      <ObjectId>16833</ObjectId>
+      <StateNumber>2446</StateNumber>
+      <Turn>before-row</Turn>
+      <Events>IU</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>16832</CallRoutineId>
+    </trigger>
+    <column id="169" parent="61" name="cod_doacao">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1770,34 +2096,34 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;doacao_cod_doacao_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="131" parent="54" name="cod_benfeitor">
+    <column id="170" parent="61" name="cod_benfeitor">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>947</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="132" parent="54" name="dt_doacao">
+    <column id="171" parent="61" name="dt_doacao">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>947</StateNumber>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <index id="133" parent="54" name="doacao_pkey">
+    <index id="172" parent="61" name="doacao_pkey">
       <ObjectId>16498</ObjectId>
       <StateNumber>947</StateNumber>
       <ColNames>cod_doacao</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="134" parent="54" name="doacao_pkey">
+    <key id="173" parent="61" name="doacao_pkey">
       <ObjectId>16499</ObjectId>
       <StateNumber>947</StateNumber>
       <ColNames>cod_doacao</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>doacao_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="135" parent="54" name="doacao_cod_benfeitor_fkey">
+    <foreign-key id="174" parent="61" name="doacao_cod_benfeitor_fkey">
       <ObjectId>16500</ObjectId>
       <StateNumber>947</StateNumber>
       <ColNames>cod_benfeitor</ColNames>
@@ -1807,7 +2133,7 @@ sequence|table|16616|16618|1
       <RefKeyName>benfeitor_pkey</RefKeyName>
       <RefColNames>cod_benfeitor</RefColNames>
     </foreign-key>
-    <column id="136" parent="55" name="cod_especialidade">
+    <column id="175" parent="62" name="cod_especialidade">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1815,34 +2141,34 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;especialidade_cod_especialidade_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="137" parent="55" name="nome">
+    <column id="176" parent="62" name="nome">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1826</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="138" parent="55" name="descricao">
+    <column id="177" parent="62" name="descricao">
       <Position>3</Position>
       <DataType>varchar(128)|0s</DataType>
       <StateNumber>1826</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="139" parent="55" name="especialidade_pkey">
+    <index id="178" parent="62" name="especialidade_pkey">
       <ObjectId>16614</ObjectId>
       <StateNumber>1826</StateNumber>
       <ColNames>cod_especialidade</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="140" parent="55" name="especialidade_pkey">
+    <key id="179" parent="62" name="especialidade_pkey">
       <ObjectId>16615</ObjectId>
       <StateNumber>1826</StateNumber>
       <ColNames>cod_especialidade</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>especialidade_pkey</UnderlyingIndexName>
     </key>
-    <column id="141" parent="56" name="cod_evento">
+    <column id="180" parent="63" name="cod_evento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1850,13 +2176,13 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;evento_cod_evento_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="142" parent="56" name="cod_tipo_evento">
+    <column id="181" parent="63" name="cod_tipo_evento">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2223</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="143" parent="56" name="arrecadacao">
+    <column id="182" parent="63" name="arrecadacao">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
@@ -1864,7 +2190,7 @@ sequence|table|16616|16618|1
       <DefaultExpression>0</DefaultExpression>
       <TypeId>701</TypeId>
     </column>
-    <column id="144" parent="56" name="custo">
+    <column id="183" parent="63" name="custo">
       <Position>4</Position>
       <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
@@ -1872,14 +2198,14 @@ sequence|table|16616|16618|1
       <DefaultExpression>0</DefaultExpression>
       <TypeId>701</TypeId>
     </column>
-    <column id="145" parent="56" name="nome">
+    <column id="184" parent="63" name="nome">
       <Position>5</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2223</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="146" parent="56" name="dt_inicio">
+    <column id="185" parent="63" name="dt_inicio">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
@@ -1887,27 +2213,27 @@ sequence|table|16616|16618|1
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
       <TypeId>1082</TypeId>
     </column>
-    <column id="147" parent="56" name="dt_fim">
+    <column id="186" parent="63" name="dt_fim">
       <Position>7</Position>
       <DataType>date|0s</DataType>
       <StateNumber>2223</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="148" parent="56" name="evento_pkey">
+    <index id="187" parent="63" name="evento_pkey">
       <ObjectId>16728</ObjectId>
       <StateNumber>2223</StateNumber>
       <ColNames>cod_evento</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="149" parent="56" name="evento_pkey">
+    <key id="188" parent="63" name="evento_pkey">
       <ObjectId>16729</ObjectId>
       <StateNumber>2223</StateNumber>
       <ColNames>cod_evento</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>evento_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="150" parent="56" name="evento_cod_tipo_evento_fkey">
+    <foreign-key id="189" parent="63" name="evento_cod_tipo_evento_fkey">
       <ObjectId>16730</ObjectId>
       <StateNumber>2223</StateNumber>
       <ColNames>cod_tipo_evento</ColNames>
@@ -1917,7 +2243,7 @@ sequence|table|16616|16618|1
       <RefKeyName>tipo_evento_pkey</RefKeyName>
       <RefColNames>cod_tipo_evento</RefColNames>
     </foreign-key>
-    <trigger id="151" parent="56" name="trigger_evento">
+    <trigger id="190" parent="63" name="trigger_evento">
       <ObjectId>16739</ObjectId>
       <StateNumber>2242</StateNumber>
       <Turn>before-row</Turn>
@@ -1925,7 +2251,43 @@ sequence|table|16616|16618|1
       <FireMode>origin</FireMode>
       <CallRoutineId>16738</CallRoutineId>
     </trigger>
-    <column id="152" parent="57" name="cod_item_doacao">
+    <column id="191" parent="64" name="cod_funcao">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2350</StateNumber>
+      <DefaultExpression>nextval(&apos;funcao_cod_funcao_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="192" parent="64" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2350</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="193" parent="64" name="descricao">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2350</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="194" parent="64" name="funcao_pkey">
+      <ObjectId>16781</ObjectId>
+      <StateNumber>2350</StateNumber>
+      <ColNames>cod_funcao</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="195" parent="64" name="funcao_pkey">
+      <ObjectId>16782</ObjectId>
+      <StateNumber>2350</StateNumber>
+      <ColNames>cod_funcao</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>funcao_pkey</UnderlyingIndexName>
+    </key>
+    <column id="196" parent="65" name="cod_item_doacao">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1933,54 +2295,54 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;item_doacao_cod_item_doacao_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="153" parent="57" name="cod_doacao">
+    <column id="197" parent="65" name="cod_doacao">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>948</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="154" parent="57" name="cod_alimento">
+    <column id="198" parent="65" name="cod_alimento">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>948</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="155" parent="57" name="quantidade">
+    <column id="199" parent="65" name="quantidade">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>948</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="156" parent="57" name="unidade_de_medida">
+    <column id="200" parent="65" name="unidade_de_medida">
       <Position>5</Position>
       <DataType>varchar(2)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1164</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="157" parent="57" name="grandeza">
+    <column id="201" parent="65" name="grandeza">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1166</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="158" parent="57" name="item_doacao_pkey">
+    <index id="202" parent="65" name="item_doacao_pkey">
       <ObjectId>16511</ObjectId>
       <StateNumber>948</StateNumber>
       <ColNames>cod_item_doacao</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="159" parent="57" name="item_doacao_pkey">
+    <key id="203" parent="65" name="item_doacao_pkey">
       <ObjectId>16512</ObjectId>
       <StateNumber>948</StateNumber>
       <ColNames>cod_item_doacao</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>item_doacao_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="160" parent="57" name="item_doacao_cod_doacao_fkey">
+    <foreign-key id="204" parent="65" name="item_doacao_cod_doacao_fkey">
       <ObjectId>16513</ObjectId>
       <StateNumber>948</StateNumber>
       <ColNames>cod_doacao</ColNames>
@@ -1990,7 +2352,7 @@ sequence|table|16616|16618|1
       <RefKeyName>doacao_pkey</RefKeyName>
       <RefColNames>cod_doacao</RefColNames>
     </foreign-key>
-    <foreign-key id="161" parent="57" name="item_doacao_cod_alimento_fkey">
+    <foreign-key id="205" parent="65" name="item_doacao_cod_alimento_fkey">
       <ObjectId>16518</ObjectId>
       <StateNumber>948</StateNumber>
       <ColNames>cod_alimento</ColNames>
@@ -2000,7 +2362,7 @@ sequence|table|16616|16618|1
       <RefKeyName>alimento_pkey</RefKeyName>
       <RefColNames>cod_alimento</RefColNames>
     </foreign-key>
-    <column id="162" parent="58" name="cod_item_recebimento">
+    <column id="206" parent="66" name="cod_item_recebimento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -2008,54 +2370,54 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;item_recebimento_cod_item_recebimento_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="163" parent="58" name="cod_alimento">
+    <column id="207" parent="66" name="cod_alimento">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="164" parent="58" name="cod_recebimento">
+    <column id="208" parent="66" name="cod_recebimento">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="165" parent="58" name="quantidade">
+    <column id="209" parent="66" name="quantidade">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="166" parent="58" name="unidade_de_medida">
+    <column id="210" parent="66" name="unidade_de_medida">
       <Position>5</Position>
       <DataType>varchar(2)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1154</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="167" parent="58" name="grandeza">
+    <column id="211" parent="66" name="grandeza">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1160</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="168" parent="58" name="item_recebimento_pkey">
+    <index id="212" parent="66" name="item_recebimento_pkey">
       <ObjectId>16463</ObjectId>
       <StateNumber>745</StateNumber>
       <ColNames>cod_item_recebimento</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="169" parent="58" name="item_recebimento_pkey">
+    <key id="213" parent="66" name="item_recebimento_pkey">
       <ObjectId>16464</ObjectId>
       <StateNumber>745</StateNumber>
       <ColNames>cod_item_recebimento</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>item_recebimento_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="170" parent="58" name="item_recebimento_cod_alimento_fkey">
+    <foreign-key id="214" parent="66" name="item_recebimento_cod_alimento_fkey">
       <ObjectId>16465</ObjectId>
       <StateNumber>745</StateNumber>
       <ColNames>cod_alimento</ColNames>
@@ -2065,7 +2427,7 @@ sequence|table|16616|16618|1
       <RefKeyName>alimento_pkey</RefKeyName>
       <RefColNames>cod_alimento</RefColNames>
     </foreign-key>
-    <foreign-key id="171" parent="58" name="item_recebimento_cod_recebimento_fkey">
+    <foreign-key id="215" parent="66" name="item_recebimento_cod_recebimento_fkey">
       <ObjectId>16470</ObjectId>
       <StateNumber>745</StateNumber>
       <ColNames>cod_recebimento</ColNames>
@@ -2075,7 +2437,7 @@ sequence|table|16616|16618|1
       <RefKeyName>recebimento_pkey</RefKeyName>
       <RefColNames>cod_recebimento</RefColNames>
     </foreign-key>
-    <column id="172" parent="59" name="cod_medico">
+    <column id="216" parent="67" name="cod_medico">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -2083,79 +2445,87 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;medico_cod_medico_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="173" parent="59" name="nome">
+    <column id="217" parent="67" name="nome">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1825</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="174" parent="59" name="dt_nasc">
+    <column id="218" parent="67" name="dt_nasc">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1825</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="175" parent="59" name="cpf">
+    <column id="219" parent="67" name="cpf">
       <Position>4</Position>
       <DataType>varchar(14)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1825</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="176" parent="59" name="crm">
+    <column id="220" parent="67" name="crm">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1825</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="177" parent="59" name="telefone">
+    <column id="221" parent="67" name="telefone">
       <Position>6</Position>
       <DataType>varchar(15)|0s</DataType>
       <StateNumber>1825</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="178" parent="59" name="medico_pkey">
+    <index id="222" parent="67" name="medico_pkey">
       <ObjectId>16602</ObjectId>
       <StateNumber>1825</StateNumber>
       <ColNames>cod_medico</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="179" parent="59" name="medico_cpf_key">
+    <index id="223" parent="67" name="medico_cpf_key">
       <ObjectId>16604</ObjectId>
       <StateNumber>1825</StateNumber>
       <ColNames>cpf</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="180" parent="59" name="medico_crm_key">
+    <index id="224" parent="67" name="medico_crm_key">
       <ObjectId>16606</ObjectId>
       <StateNumber>1825</StateNumber>
       <ColNames>crm</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="181" parent="59" name="medico_pkey">
+    <key id="225" parent="67" name="medico_pkey">
       <ObjectId>16603</ObjectId>
       <StateNumber>1825</StateNumber>
       <ColNames>cod_medico</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>medico_pkey</UnderlyingIndexName>
     </key>
-    <key id="182" parent="59" name="medico_cpf_key">
+    <key id="226" parent="67" name="medico_cpf_key">
       <ObjectId>16605</ObjectId>
       <StateNumber>1825</StateNumber>
       <ColNames>cpf</ColNames>
       <UnderlyingIndexName>medico_cpf_key</UnderlyingIndexName>
     </key>
-    <key id="183" parent="59" name="medico_crm_key">
+    <key id="227" parent="67" name="medico_crm_key">
       <ObjectId>16607</ObjectId>
       <StateNumber>1825</StateNumber>
       <ColNames>crm</ColNames>
       <UnderlyingIndexName>medico_crm_key</UnderlyingIndexName>
     </key>
-    <column id="184" parent="60" name="cod_medico_especialidade">
+    <trigger id="228" parent="67" name="trigger_cpf_medico">
+      <ObjectId>16835</ObjectId>
+      <StateNumber>2461</StateNumber>
+      <Turn>before-row</Turn>
+      <Events>IU</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>16807</CallRoutineId>
+    </trigger>
+    <column id="229" parent="68" name="cod_medico_especialidade">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -2163,33 +2533,33 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;medico_especialidade_cod_medico_especialidade_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="185" parent="60" name="cod_especialidade">
+    <column id="230" parent="68" name="cod_especialidade">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1827</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="186" parent="60" name="cod_medico">
+    <column id="231" parent="68" name="cod_medico">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1827</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="187" parent="60" name="medico_especialidade_pkey">
+    <index id="232" parent="68" name="medico_especialidade_pkey">
       <ObjectId>16622</ObjectId>
       <StateNumber>1827</StateNumber>
       <ColNames>cod_medico_especialidade</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="188" parent="60" name="medico_especialidade_pkey">
+    <key id="233" parent="68" name="medico_especialidade_pkey">
       <ObjectId>16623</ObjectId>
       <StateNumber>1827</StateNumber>
       <ColNames>cod_medico_especialidade</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>medico_especialidade_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="189" parent="60" name="medico_especialidade_cod_especialidade_fkey">
+    <foreign-key id="234" parent="68" name="medico_especialidade_cod_especialidade_fkey">
       <ObjectId>16624</ObjectId>
       <StateNumber>1827</StateNumber>
       <ColNames>cod_especialidade</ColNames>
@@ -2199,7 +2569,7 @@ sequence|table|16616|16618|1
       <RefKeyName>especialidade_pkey</RefKeyName>
       <RefColNames>cod_especialidade</RefColNames>
     </foreign-key>
-    <foreign-key id="190" parent="60" name="medico_especialidade_cod_medico_fkey">
+    <foreign-key id="235" parent="68" name="medico_especialidade_cod_medico_fkey">
       <ObjectId>16629</ObjectId>
       <StateNumber>1827</StateNumber>
       <ColNames>cod_medico</ColNames>
@@ -2209,7 +2579,7 @@ sequence|table|16616|16618|1
       <RefKeyName>medico_pkey</RefKeyName>
       <RefColNames>cod_medico</RefColNames>
     </foreign-key>
-    <column id="191" parent="61" name="cod_recebimento">
+    <column id="236" parent="69" name="cod_recebimento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -2217,34 +2587,34 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;recebimento_cod_recebimento_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="192" parent="61" name="cod_socio">
+    <column id="237" parent="69" name="cod_socio">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>742</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="193" parent="61" name="dt_recebimento">
+    <column id="238" parent="69" name="dt_recebimento">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>742</StateNumber>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <index id="194" parent="61" name="recebimento_pkey">
+    <index id="239" parent="69" name="recebimento_pkey">
       <ObjectId>16450</ObjectId>
       <StateNumber>742</StateNumber>
       <ColNames>cod_recebimento</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="195" parent="61" name="recebimento_pkey">
+    <key id="240" parent="69" name="recebimento_pkey">
       <ObjectId>16451</ObjectId>
       <StateNumber>742</StateNumber>
       <ColNames>cod_recebimento</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>recebimento_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="196" parent="61" name="recebimento_cod_socio_fkey">
+    <foreign-key id="241" parent="69" name="recebimento_cod_socio_fkey">
       <ObjectId>16452</ObjectId>
       <StateNumber>742</StateNumber>
       <ColNames>cod_socio</ColNames>
@@ -2254,13 +2624,13 @@ sequence|table|16616|16618|1
       <RefKeyName>socio_pkey</RefKeyName>
       <RefColNames>cod_socio</RefColNames>
     </foreign-key>
-    <column id="197" parent="62" name="array_agg">
+    <column id="242" parent="70" name="array_agg">
       <Position>1</Position>
       <DataType>text[]|0s</DataType>
       <StateNumber>686</StateNumber>
       <TypeId>1009</TypeId>
     </column>
-    <column id="198" parent="63" name="cod_socio">
+    <column id="243" parent="71" name="cod_socio">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -2268,60 +2638,60 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;socio_cod_socio_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="199" parent="63" name="nome">
+    <column id="244" parent="71" name="nome">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>587</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="200" parent="63" name="dt_nasc">
+    <column id="245" parent="71" name="dt_nasc">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>587</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="201" parent="63" name="cpf">
+    <column id="246" parent="71" name="cpf">
       <Position>4</Position>
       <DataType>varchar(14)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>620</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="202" parent="63" name="telefone">
+    <column id="247" parent="71" name="telefone">
       <Position>7</Position>
       <DataType>varchar(15)|0s</DataType>
       <StateNumber>998</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="203" parent="63" name="dt_falecimento">
+    <column id="248" parent="71" name="dt_falecimento">
       <Position>8</Position>
       <DataType>date|0s</DataType>
       <StateNumber>587</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="204" parent="63" name="socio_pkey">
+    <index id="249" parent="71" name="socio_pkey">
       <ObjectId>16418</ObjectId>
       <StateNumber>587</StateNumber>
       <ColNames>cod_socio</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="205" parent="63" name="socio_cpf_uindex">
+    <index id="250" parent="71" name="socio_cpf_uindex">
       <ObjectId>16425</ObjectId>
       <StateNumber>626</StateNumber>
       <ColNames>cpf</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="206" parent="63" name="socio_pkey">
+    <key id="251" parent="71" name="socio_pkey">
       <ObjectId>16419</ObjectId>
       <StateNumber>587</StateNumber>
       <ColNames>cod_socio</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>socio_pkey</UnderlyingIndexName>
     </key>
-    <trigger id="207" parent="63" name="trigger_socio">
+    <trigger id="252" parent="71" name="trigger_socio">
       <ObjectId>16424</ObjectId>
       <StateNumber>611</StateNumber>
       <Turn>before-row</Turn>
@@ -2329,7 +2699,7 @@ sequence|table|16616|16618|1
       <FireMode>origin</FireMode>
       <CallRoutineId>16421</CallRoutineId>
     </trigger>
-    <column id="208" parent="64" name="cod_tipo_evento">
+    <column id="253" parent="72" name="cod_tipo_evento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -2337,515 +2707,775 @@ sequence|table|16616|16618|1
       <DefaultExpression>nextval(&apos;tipo_evento_cod_tipo_evento_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="209" parent="64" name="nome">
+    <column id="254" parent="72" name="nome">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2221</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="210" parent="64" name="descricao">
+    <column id="255" parent="72" name="descricao">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2221</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="211" parent="64" name="tipo_evento_pkey">
+    <index id="256" parent="72" name="tipo_evento_pkey">
       <ObjectId>16717</ObjectId>
       <StateNumber>2221</StateNumber>
       <ColNames>cod_tipo_evento</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="212" parent="64" name="tipo_evento_pkey">
+    <key id="257" parent="72" name="tipo_evento_pkey">
       <ObjectId>16718</ObjectId>
       <StateNumber>2221</StateNumber>
       <ColNames>cod_tipo_evento</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>tipo_evento_pkey</UnderlyingIndexName>
     </key>
-    <column id="213" parent="65" name="cod_alimento">
+    <column id="258" parent="73" name="cod_voluntario">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2349</StateNumber>
+      <DefaultExpression>nextval(&apos;voluntario_cod_voluntario_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="259" parent="73" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2349</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="260" parent="73" name="dt_nasc">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2349</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="261" parent="73" name="cpf">
+      <Position>4</Position>
+      <DataType>varchar(14)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2349</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="262" parent="73" name="telefone">
+      <Position>5</Position>
+      <DataType>varchar(15)|0s</DataType>
+      <StateNumber>2349</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="263" parent="73" name="voluntario_pkey">
+      <ObjectId>16768</ObjectId>
+      <StateNumber>2349</StateNumber>
+      <ColNames>cod_voluntario</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="264" parent="73" name="voluntario_cpf_key">
+      <ObjectId>16770</ObjectId>
+      <StateNumber>2349</StateNumber>
+      <ColNames>cpf</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="265" parent="73" name="voluntario_pkey">
+      <ObjectId>16769</ObjectId>
+      <StateNumber>2349</StateNumber>
+      <ColNames>cod_voluntario</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>voluntario_pkey</UnderlyingIndexName>
+    </key>
+    <key id="266" parent="73" name="voluntario_cpf_key">
+      <ObjectId>16771</ObjectId>
+      <StateNumber>2349</StateNumber>
+      <ColNames>cpf</ColNames>
+      <UnderlyingIndexName>voluntario_cpf_key</UnderlyingIndexName>
+    </key>
+    <trigger id="267" parent="73" name="trigger_cpf_voluntario">
+      <ObjectId>16808</ObjectId>
+      <StateNumber>2381</StateNumber>
+      <Turn>before-row</Turn>
+      <Events>IU</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>16807</CallRoutineId>
+    </trigger>
+    <column id="268" parent="74" name="cod_voluntario_funcao">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2351</StateNumber>
+      <DefaultExpression>nextval(&apos;voluntario_funcao_cod_voluntario_funcao_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="269" parent="74" name="cod_voluntario">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2351</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="270" parent="74" name="cod_evento">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2351</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="271" parent="74" name="cod_funcao">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2351</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="272" parent="74" name="voluntario_funcao_pkey">
+      <ObjectId>16789</ObjectId>
+      <StateNumber>2351</StateNumber>
+      <ColNames>cod_voluntario_funcao</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="273" parent="74" name="voluntario_funcao_pkey">
+      <ObjectId>16790</ObjectId>
+      <StateNumber>2351</StateNumber>
+      <ColNames>cod_voluntario_funcao</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>voluntario_funcao_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="274" parent="74" name="voluntario_funcao_cod_voluntario_fkey">
+      <ObjectId>16791</ObjectId>
+      <StateNumber>2351</StateNumber>
+      <ColNames>cod_voluntario</ColNames>
+      <RefTableId>16764</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>voluntario</RefTableName>
+      <RefKeyName>voluntario_pkey</RefKeyName>
+      <RefColNames>cod_voluntario</RefColNames>
+    </foreign-key>
+    <foreign-key id="275" parent="74" name="voluntario_funcao_cod_evento_fkey">
+      <ObjectId>16796</ObjectId>
+      <StateNumber>2351</StateNumber>
+      <ColNames>cod_evento</ColNames>
+      <RefTableId>16721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>evento</RefTableName>
+      <RefKeyName>evento_pkey</RefKeyName>
+      <RefColNames>cod_evento</RefColNames>
+    </foreign-key>
+    <foreign-key id="276" parent="74" name="voluntario_funcao_cod_funcao_fkey">
+      <ObjectId>16801</ObjectId>
+      <StateNumber>2351</StateNumber>
+      <ColNames>cod_funcao</ColNames>
+      <RefTableId>16774</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>funcao</RefTableName>
+      <RefKeyName>funcao_pkey</RefKeyName>
+      <RefColNames>cod_funcao</RefColNames>
+    </foreign-key>
+    <trigger id="277" parent="74" name="trigger_voluntario_funcao">
+      <ObjectId>16812</ObjectId>
+      <StateNumber>2416</StateNumber>
+      <Turn>before-row</Turn>
+      <Events>IU</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>16811</CallRoutineId>
+    </trigger>
+    <column id="278" parent="75" name="cod_alimento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="214" parent="65" name="cod_doacao">
+    <column id="279" parent="75" name="cod_doacao">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="215" parent="65" name="quantidade">
+    <column id="280" parent="75" name="quantidade">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="216" parent="65" name="unidade_de_medida">
+    <column id="281" parent="75" name="unidade_de_medida">
       <Position>4</Position>
       <DataType>varchar(2)|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="217" parent="65" name="grandeza">
+    <column id="282" parent="75" name="grandeza">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="218" parent="65" name="nome">
+    <column id="283" parent="75" name="nome">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="219" parent="65" name="cod_benfeitor">
+    <column id="284" parent="75" name="cod_benfeitor">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="220" parent="65" name="dt_doacao">
+    <column id="285" parent="75" name="dt_doacao">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>1845</StateNumber>
     </column>
-    <column id="221" parent="66" name="cod_alimento">
+    <column id="286" parent="76" name="cod_alimento">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="222" parent="66" name="cod_recebimento">
+    <column id="287" parent="76" name="cod_recebimento">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="223" parent="66" name="quantidade">
+    <column id="288" parent="76" name="quantidade">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="224" parent="66" name="unidade_de_medida">
+    <column id="289" parent="76" name="unidade_de_medida">
       <Position>4</Position>
       <DataType>varchar(2)|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="225" parent="66" name="grandeza">
+    <column id="290" parent="76" name="grandeza">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="226" parent="66" name="nome">
+    <column id="291" parent="76" name="nome">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="227" parent="66" name="cod_socio">
+    <column id="292" parent="76" name="cod_socio">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <column id="228" parent="66" name="dt_recebimento">
+    <column id="293" parent="76" name="dt_recebimento">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>1842</StateNumber>
     </column>
-    <argument id="229" parent="67" name="nome_medico">
+    <argument id="294" parent="77" name="nome_evento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="230" parent="67" name="nome_especialidade">
+    <argument id="295" parent="77" name="valor_custo">
       <Position>2</Position>
-      <DataType>varchar|0s</DataType>
+      <DataType>double precision|0s</DataType>
     </argument>
-    <argument id="231" parent="67">
+    <argument id="296" parent="77">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="232" parent="68" name="nome_tabela">
+    <argument id="297" parent="78" name="nome_medico">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="233" parent="68" name="chave">
+    <argument id="298" parent="78" name="nome_especialidade">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="234" parent="68" name="valor">
-      <Position>3</Position>
-      <DataType>varchar|0s</DataType>
-    </argument>
-    <argument id="235" parent="68" name="campos">
-      <Position>4</Position>
-      <DataType>json|0s</DataType>
-    </argument>
-    <argument id="236" parent="68">
+    <argument id="299" parent="78">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="237" parent="69" name="nome_tabela">
+    <argument id="300" parent="79" name="nome_evento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="238" parent="69" name="chave">
+    <argument id="301" parent="79" name="cpf_voluntario">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="239" parent="69" name="valor">
+    <argument id="302" parent="79" name="nome_funcao">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="240" parent="69" name="campos">
+    <argument id="303" parent="79">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(n text)|0v</DataType>
+    </argument>
+    <argument id="304" parent="80" name="nome_tabela">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="305" parent="80" name="chave">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="306" parent="80" name="valor">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="307" parent="80" name="campos">
       <Position>4</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="241" parent="69" name="forbidden_fields">
+    <argument id="308" parent="80">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(n text)|0v</DataType>
+    </argument>
+    <argument id="309" parent="81" name="nome_evento">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="310" parent="81" name="data_fim">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <DefaultExpression>CURRENT_DATE</DefaultExpression>
+    </argument>
+    <argument id="311" parent="81">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(n text)|0v</DataType>
+    </argument>
+    <argument id="312" parent="82" name="nome_tabela">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="313" parent="82" name="chave">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="314" parent="82" name="valor">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="315" parent="82" name="campos">
+      <Position>4</Position>
+      <DataType>json|0s</DataType>
+    </argument>
+    <argument id="316" parent="82" name="forbidden_fields">
       <Position>5</Position>
       <DataType>text[]|0s</DataType>
     </argument>
-    <argument id="242" parent="69">
+    <argument id="317" parent="82">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="243" parent="70" name="nome_tabela">
+    <argument id="318" parent="83" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="244" parent="70" name="chave">
+    <argument id="319" parent="83" name="chave">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="245" parent="70" name="valor">
+    <argument id="320" parent="83" name="valor">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="246" parent="70">
+    <argument id="321" parent="83">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(cod_name varchar, cod_value varchar, qtd_registros integer)|0v</DataType>
     </argument>
-    <argument id="247" parent="71" name="nome_alimento">
+    <argument id="322" parent="84" name="nome_alimento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="248" parent="71">
+    <argument id="323" parent="84">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="249" parent="72" name="cpf_benfeitor">
+    <argument id="324" parent="85" name="cpf_benfeitor">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="250" parent="72">
+    <argument id="325" parent="85">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="251" parent="73" name="nome_especialidade">
+    <argument id="326" parent="86" name="nome_especialidade">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="252" parent="73">
+    <argument id="327" parent="86">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="253" parent="74" name="nome_evento">
+    <argument id="328" parent="87" name="nome_evento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="254" parent="74">
+    <argument id="329" parent="87">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="255" parent="75" name="nome_medico">
+    <argument id="330" parent="88" name="nome_funcao">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="256" parent="75">
+    <argument id="331" parent="88">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="257" parent="76" name="cpf_socio">
+    <argument id="332" parent="89" name="nome_medico">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="258" parent="76">
+    <argument id="333" parent="89">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="259" parent="77" name="nome_tabela">
+    <argument id="334" parent="90" name="cpf_socio">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="260" parent="77" name="campos">
+    <argument id="335" parent="90">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="336" parent="91" name="nome_tipo_evento">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="337" parent="91">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="338" parent="92" name="cpf_voluntario">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="339" parent="92">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="340" parent="93" name="nome_tabela">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="341" parent="93" name="campos">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="261" parent="77">
+    <argument id="342" parent="93">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="262" parent="78" name="nome_tabela">
+    <argument id="343" parent="94" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="263" parent="78" name="campos">
+    <argument id="344" parent="94" name="campos">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="264" parent="78" name="forbidden_fields">
+    <argument id="345" parent="94" name="forbidden_fields">
       <Position>3</Position>
       <DataType>text[]|0s</DataType>
     </argument>
-    <argument id="265" parent="78">
+    <argument id="346" parent="94">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="266" parent="79" name="campos">
+    <argument id="347" parent="95" name="campos">
       <Position>1</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="267" parent="79">
+    <argument id="348" parent="95">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="268" parent="80" name="nome_tabela">
+    <argument id="349" parent="96" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="269" parent="80" name="campos">
+    <argument id="350" parent="96" name="campos">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="270" parent="80">
+    <argument id="351" parent="96">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="271" parent="81" name="nome_evento">
+    <argument id="352" parent="97" name="nome_evento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="272" parent="81" name="nome_tipo_evento">
+    <argument id="353" parent="97" name="nome_tipo_evento">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="273" parent="81" name="valor_arrecacao">
+    <argument id="354" parent="97" name="valor_arrecacao">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </argument>
-    <argument id="274" parent="81" name="valor_custo">
+    <argument id="355" parent="97" name="valor_custo">
       <Position>4</Position>
       <DataType>double precision|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </argument>
-    <argument id="275" parent="81" name="data_inicio">
+    <argument id="356" parent="97" name="data_inicio">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
     </argument>
-    <argument id="276" parent="81" name="data_fim">
+    <argument id="357" parent="97" name="data_fim">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <DefaultExpression>NULL::date</DefaultExpression>
     </argument>
-    <argument id="277" parent="81">
+    <argument id="358" parent="97">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="278" parent="82" name="nome_tabela">
+    <argument id="359" parent="98" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="279" parent="82" name="chave">
+    <argument id="360" parent="98" name="chave">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="280" parent="82" name="valor">
+    <argument id="361" parent="98" name="valor">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="281" parent="82">
+    <argument id="362" parent="98">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="282" parent="83" name="nome_tabela">
+    <argument id="363" parent="99" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="283" parent="83" name="chave">
+    <argument id="364" parent="99" name="chave">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="284" parent="83" name="valor">
+    <argument id="365" parent="99" name="valor">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="285" parent="83">
+    <argument id="366" parent="99">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="286" parent="84" name="nome_evento">
+    <argument id="367" parent="100" name="nome_evento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="287" parent="84" name="cpf_benfeitor">
+    <argument id="368" parent="100" name="cpf_benfeitor">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="288" parent="84" name="valor_doado">
+    <argument id="369" parent="100" name="valor_doacao">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
     </argument>
-    <argument id="289" parent="84">
+    <argument id="370" parent="100">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="290" parent="85" name="nome_tabela">
+    <argument id="371" parent="101" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="291" parent="85" name="campos">
+    <argument id="372" parent="101" name="campos">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="292" parent="85">
+    <argument id="373" parent="101">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="293" parent="86">
+    <argument id="374" parent="102">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="294" parent="87">
+    <argument id="375" parent="103">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="295" parent="88">
+    <argument id="376" parent="104">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="296" parent="89">
+    <argument id="377" parent="105">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="297" parent="90">
+    <argument id="378" parent="106">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="298" parent="91" name="alimentos">
+    <argument id="379" parent="107">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0s</DataType>
+    </argument>
+    <argument id="380" parent="108">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0s</DataType>
+    </argument>
+    <argument id="381" parent="109">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0s</DataType>
+    </argument>
+    <argument id="382" parent="110" name="alimentos">
       <Position>1</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="299" parent="91">
+    <argument id="383" parent="110">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(alimentos_json json, relatorio_list text[])|0v</DataType>
     </argument>
-    <argument id="300" parent="92" name="alimentos">
+    <argument id="384" parent="111" name="alimentos">
       <Position>1</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="301" parent="92" name="id_alimento">
+    <argument id="385" parent="111" name="id_alimento">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="302" parent="92">
+    <argument id="386" parent="111">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(f_alimentos json, r text[])|0v</DataType>
     </argument>
-    <argument id="303" parent="93" name="cpf">
+    <argument id="387" parent="112" name="cpf">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="304" parent="93">
+    <argument id="388" parent="112">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="305" parent="94" name="nome_alimento">
+    <argument id="389" parent="113" name="nome_alimento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="306" parent="94" name="qtd">
+    <argument id="390" parent="113" name="qtd">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="307" parent="94">
+    <argument id="391" parent="113">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="308" parent="95">
+    <argument id="392" parent="114" name="nome_medico">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="393" parent="114" name="nome_especialidade">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="394" parent="114" name="cpf_socio">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="395" parent="114" name="data">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+    </argument>
+    <argument id="396" parent="114" name="hora">
+      <Position>5</Position>
+      <DataType>time|0s</DataType>
+    </argument>
+    <argument id="397" parent="114">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(n text)|0v</DataType>
+    </argument>
+    <argument id="398" parent="115">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="309" parent="96" name="nome_tabela">
+    <argument id="399" parent="116" name="nome_tabela">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="310" parent="96" name="array_json">
+    <argument id="400" parent="116" name="array_json">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="311" parent="96">
+    <argument id="401" parent="116">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="312" parent="97" name="cpf_benfeitor">
+    <argument id="402" parent="117" name="cpf_benfeitor">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="313" parent="97" name="alimentos">
+    <argument id="403" parent="117" name="alimentos">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="314" parent="97" name="id_doacao">
+    <argument id="404" parent="117" name="id_doacao">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>NULL::integer</DefaultExpression>
     </argument>
-    <argument id="315" parent="97">
+    <argument id="405" parent="117">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="316" parent="98" name="cpf_socio">
+    <argument id="406" parent="118" name="cpf_socio">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="317" parent="98" name="alimentos">
+    <argument id="407" parent="118" name="alimentos">
       <Position>2</Position>
       <DataType>json|0s</DataType>
     </argument>
-    <argument id="318" parent="98" name="id_recebimento">
+    <argument id="408" parent="118" name="id_recebimento">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>NULL::integer</DefaultExpression>
     </argument>
-    <argument id="319" parent="98">
+    <argument id="409" parent="118">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(n text)|0v</DataType>
     </argument>
-    <argument id="320" parent="99" name="campos">
+    <argument id="410" parent="119" name="campos">
       <Position>1</Position>
       <DataType>json|0s</DataType>
       <DefaultExpression>&apos;{}&apos;::json</DefaultExpression>
     </argument>
-    <argument id="321" parent="99">
+    <argument id="411" parent="119">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(relatorio text)|0v</DataType>
     </argument>
-    <argument id="322" parent="100" name="campos">
+    <argument id="412" parent="120" name="campos">
       <Position>1</Position>
       <DataType>json|0s</DataType>
       <DefaultExpression>&apos;{}&apos;::json</DefaultExpression>
     </argument>
-    <argument id="323" parent="100">
+    <argument id="413" parent="120">
       <ArgumentDirection>T</ArgumentDirection>
       <DataType>table(relatorio text)|0v</DataType>
     </argument>
-    <argument id="324" parent="101" name="value_cpf">
+    <argument id="414" parent="121" name="nome_evento">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="325" parent="101">
+    <argument id="415" parent="121" name="cpf_voluntario">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="416" parent="121">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(n text)|0v</DataType>
+    </argument>
+    <argument id="417" parent="122" name="value_cpf">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="418" parent="122">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>boolean|0s</DataType>
     </argument>
-    <argument id="326" parent="102" name="value_cpf">
+    <argument id="419" parent="123" name="value_cpf">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="327" parent="102">
+    <argument id="420" parent="123">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>varchar|0s</DataType>
     </argument>
