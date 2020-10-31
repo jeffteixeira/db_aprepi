@@ -97,6 +97,23 @@ CREATE TABLE MEDICO_ESPECIALIDADE(
     cod_especialidade int references especialidade(cod_especialidade),
     cod_medico int references medico(cod_medico)
 );
+
+CREATE TABLE TIPO_EVENTO(
+    cod_tipo_evento serial primary key,
+    nome varchar(32) not null,
+    descricao text not null
+);
+
+CREATE TABLE EVENTO(
+    cod_evento serial primary key,
+    cod_tipo_evento int references tipo_evento(cod_tipo_evento),
+    arrecadacao float not null default 0,
+    custo float not null default 0,
+    nome varchar(32) not null,
+	dt_inicio date not null default current_date,
+	dt_fim date null
+);
+
 select quantidade from alimento;
 
 SELECT (('{"arz": "1"}'::json)->>'arz')::int;
