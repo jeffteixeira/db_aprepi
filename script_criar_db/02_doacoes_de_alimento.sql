@@ -50,6 +50,24 @@ RETURNS table (alimentos_json json, relatorio_list text[]) as $$
         END;
 $$ language plpgsql SECURITY DEFINER;
 
+-- INFORMAR FALECIMENTO DE SOCIO
+
+create or replace function informar_falecimento_socio(cpf varchar)
+RETURNS table (n text) as
+$$
+    DECLARE
+        id int;
+    BEGIN
+        id := buscar_cod_socio(cpf);
+        UPDATE socio SET dt_falecimento = current_date WHERE cod_socio = id;
+        RETURN QUERY SELECT 'Operação realizada com sucesso.';
+
+        EXCEPTION
+            WHEN others THEN
+                RETURN QUERY SELECT unnest(ARRAY[CONCAT('Erro durante a execução -> ', SQLERRM)]);
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
 -- CESTA BASICA
 
 create or replace function inserir_item_cesta_basica(nome_alimento varchar, qtd int)
