@@ -428,7 +428,7 @@ RETURNS table (relatorio text) as $$
                 RETURN QUERY SELECT 'Erro durante a consulta -> ' || SQLERRM;
     END;
 
-$$ language plpgsql SECURITY DEFINER;
+$$ language plpgsql SECURITY DEFINER SET SEARCH_PATH = DEFAULT;
 
 select * from evento;
 

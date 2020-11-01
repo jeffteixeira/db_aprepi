@@ -7,5 +7,17 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/db_aprepi</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="User funcionario" uuid="814e2cc3-b57d-47d5-9f43-e359cce996dc">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/db_aprepi</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="DB heroku" uuid="d625d164-aa17-425b-9757-1e5d5365a0d1">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-52-202-22-140.compute-1.amazonaws.com:5432/dago67rk642gor</jdbc-url>
+    </data-source>
   </component>
 </project>

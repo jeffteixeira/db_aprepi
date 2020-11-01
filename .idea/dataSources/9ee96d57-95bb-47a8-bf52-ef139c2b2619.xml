@@ -796,7 +796,7 @@ false posixrules
       <ObjectId>16394</ObjectId>
       <Comment>Banco de dados do trabalho final de BD II</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2602</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2615</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16412|16414|1
 sequence|table|16435|16437|1
@@ -900,7 +900,7 @@ sequence|table|16814|16816|1
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2603</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2616</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="25" parent="3" name="heap">
@@ -1408,7 +1408,7 @@ sequence|table|16814|16816|1
       <ObjectId>16411</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>3046</SourceTextLength>
-      <StateNumber>2254</StateNumber>
+      <StateNumber>2607</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>nome_tabela character varying, campos json</ArgumentsDefinition>
       <ResultsDefinition>TABLE(n text)</ResultsDefinition>
@@ -1416,8 +1416,8 @@ sequence|table|16814|16816|1
       <ConfigurationParameters>search_path=public</ConfigurationParameters>
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
-      <Acl>X/10
-10=X/10
+      <SecurityDefiner>1</SecurityDefiner>
+      <Acl>10=X/10
 16662=X/10
 </Acl>
     </routine>
@@ -1473,13 +1473,16 @@ sequence|table|16814|16816|1
       <ObjectId>16590</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1861</SourceTextLength>
-      <StateNumber>1785</StateNumber>
+      <StateNumber>2613</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>nome_tabela character varying, chave character varying, valor character varying</ArgumentsDefinition>
       <ResultsDefinition>TABLE(n text)</ResultsDefinition>
       <LanguageName>plpgsql</LanguageName>
       <RoutineKind>function</RoutineKind>
       <ReturnsSet>1</ReturnsSet>
+      <SecurityDefiner>1</SecurityDefiner>
+      <Acl>10=X/10
+</Acl>
     </routine>
     <routine id="101" parent="24" name="deletar_generico">
       <ObjectId>16589</ObjectId>
@@ -1751,7 +1754,7 @@ sequence|table|16814|16816|1
       <ObjectId>16852</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2373</SourceTextLength>
-      <StateNumber>2598</StateNumber>
+      <StateNumber>2614</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>campos json DEFAULT &apos;{}&apos;::json</ArgumentsDefinition>
       <ResultsDefinition>TABLE(relatorio text)</ResultsDefinition>
