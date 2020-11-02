@@ -77,6 +77,13 @@ CREATE TABLE CESTA_BASICA(
     quantidade int not null
 );
 
+alter table cesta_basica
+drop constraint cesta_basica_cod_alimento_fkey,
+add constraint cesta_basica_cod_alimento_fkey
+   foreign key (cod_alimento)
+   references alimento(cod_alimento)
+   on delete cascade;
+
 CREATE TABLE MEDICO(
     cod_medico serial primary key,
 	nome varchar(50) not null,
@@ -185,9 +192,16 @@ SELECT realizar_doacao('677.359.478-28', json '{}');
 select * from alimento;
 
 select buscar_cod_benfeitor('677.359.478-28');
+select * from medico;
+EXPLAIN ANALYZE select buscar_cod_medico('Igor André Farias');
+
+EXPLAIN ANALYSE select nome from medico where nome ilike 'Igor André Farias';
+CREATE INDEX ON medico(nome);
 
 
 SELECT count(*) from json_object_keys(json '{}');
+
+select tablename,indexname,tablespace,indexdef  from pg_indexes where tablename = 'medico';
 
 
 

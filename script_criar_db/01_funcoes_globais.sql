@@ -325,6 +325,8 @@ execute procedure fc_trigger_crm();
 
 -- BUSCA CODIGO
 
+-- CREATE IF NOT EXISTS INDEX alimento_nome_idx ON alimento(nome);
+
 create or replace function buscar_cod_alimento(nome_alimento varchar)
 RETURNS int as $$
     DECLARE
@@ -344,6 +346,8 @@ RETURNS int as $$
     END;
 $$ language plpgsql;
 
+-- CREATE IF NOT EXISTS INDEX benfeitor_cpf_idx ON benfeitor(cpf);
+
 create or replace function buscar_cod_benfeitor(cpf_benfeitor varchar)
 RETURNS int as $$
     DECLARE
@@ -358,6 +362,8 @@ RETURNS int as $$
     END
 $$ language plpgsql SECURITY DEFINER;
 
+-- CREATE IF NOT EXISTS INDEX socio_cpf_idx ON socio(cpf);
+
 create or replace function buscar_cod_socio(cpf_socio varchar)
 RETURNS int as $$
     DECLARE
@@ -371,6 +377,8 @@ RETURNS int as $$
         RETURN id;
     END;
 $$ language plpgsql SECURITY DEFINER;
+
+-- CREATE IF NOT EXISTS INDEX evento_nome_idx ON evento(nome);
 
 create or replace function buscar_cod_evento(nome_evento varchar)
 RETURNS int as $$
@@ -391,6 +399,8 @@ RETURNS int as $$
     END;
 $$ language plpgsql;
 
+-- CREATE IF NOT EXISTS INDEX tipo_evento_nome_idx ON tipo_evento(nome);
+
 create or replace function buscar_cod_tipo_evento(nome_tipo_evento varchar)
 RETURNS int as $$
     DECLARE
@@ -410,6 +420,8 @@ RETURNS int as $$
     END;
 $$ language plpgsql;
 
+-- CREATE IF NOT EXISTS INDEX voluntario_cpf_idx ON voluntario(cpf);
+
 create or replace function buscar_cod_voluntario(cpf_voluntario varchar)
 RETURNS int as $$
     DECLARE
@@ -423,6 +435,8 @@ RETURNS int as $$
         RETURN id;
     END
 $$ language plpgsql;
+
+-- CREATE IF NOT EXISTS INDEX funcao_nome_idx ON funcao(nome);
 
 create or replace function buscar_cod_funcao(nome_funcao varchar)
 RETURNS int as $$
@@ -443,6 +457,8 @@ RETURNS int as $$
     END;
 $$ language plpgsql;
 
+-- CREATE IF NOT EXISTS INDEX medico_nome_idx ON medico(nome);
+
 CREATE or REPLACE FUNCTION buscar_cod_medico(nome_medico varchar)
 RETURNS int as
 $$
@@ -462,6 +478,8 @@ $$
         RETURN id;
     END;
 $$ language plpgsql SECURITY DEFINER;
+
+-- CREATE INDEX IF NOT EXISTS especialidade_nome_idx ON especialidade(nome);
 
 create or replace function buscar_cod_especialidade(nome_especialidade varchar)
 RETURNS int as

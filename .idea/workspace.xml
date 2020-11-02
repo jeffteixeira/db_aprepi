@@ -19,7 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33f9c5df-a2de-4f5b-b325-cfa0eade079f" name="Default Changelist" comment="scripts para reproducao do banco de dados,adicao de 06_relatorios.sql" />
+    <list default="true" id="33f9c5df-a2de-4f5b-b325-cfa0eade079f" name="Default Changelist" comment="scripts para reproducao do banco de dados,adicao de 00_tabelas.sql">
+      <change afterPath="$PROJECT_DIR$/script_criar_db/07_constrains_on_delete.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script_criar_db/extra_tabelas_com_ondelete.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619/storage_v2/_src_/database/db_aprepi._D5E_A/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619/storage_v2/_src_/database/db_aprepi._D5E_A/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/permissoes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/permissoes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/00_tabelas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/00_tabelas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/01_funcoes_globais.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/01_funcoes_globais.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/05_funcoes_genericas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/05_funcoes_genericas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tabelas.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +76,8 @@
     <MESSAGE value="scripts para reproducao do banco de dados,adicao de 03_evento.sql e 04_consulta_medico.sql" />
     <MESSAGE value="scripts para reproducao do banco de dados,adicao de 05_funcoes_genericas.sql" />
     <MESSAGE value="scripts para reproducao do banco de dados,adicao de 06_relatorios.sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="scripts para reproducao do banco de dados,adicao de 06_relatorios.sql" />
+    <MESSAGE value="scripts para reproducao do banco de dados,adicao de 00_tabelas.sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="scripts para reproducao do banco de dados,adicao de 00_tabelas.sql" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604253483626">
@@ -76,29 +88,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604143399669" />
-    <state width="1103" height="179" key="GridCell.Tab.0.bottom" timestamp="1604269871618">
+    <state width="1103" height="179" key="GridCell.Tab.0.bottom" timestamp="1604358123589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604269871618" />
-    <state width="1103" height="179" key="GridCell.Tab.0.center" timestamp="1604269871618">
+    <state width="1103" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604358123589" />
+    <state width="1103" height="179" key="GridCell.Tab.0.center" timestamp="1604358123589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604269871618" />
-    <state width="1103" height="179" key="GridCell.Tab.0.left" timestamp="1604269871618">
+    <state width="1103" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604358123589" />
+    <state width="1103" height="179" key="GridCell.Tab.0.left" timestamp="1604358123589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604269871618" />
-    <state width="1103" height="179" key="GridCell.Tab.0.right" timestamp="1604269871618">
+    <state width="1103" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604358123589" />
+    <state width="1103" height="179" key="GridCell.Tab.0.right" timestamp="1604358123589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604269871618" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604269896487">
+    <state width="1103" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604358123589" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604270284753">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604269896487" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604270284753" />
     <state x="493" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1604253786127">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="493" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1604253786127" />
+    <state x="583" y="146" width="685" height="454" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604344559718">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="583" y="146" width="685" height="454" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1604344559718" />
   </component>
 </project>

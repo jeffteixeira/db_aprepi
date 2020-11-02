@@ -114,11 +114,11 @@ $$
 
             RETURN QUERY SELECT criar_evento(
     campos->>'nome_evento',
-    campos->'nome_tipo_evento',
-    coalesce(campos->>'valor_arrecacao', 0),
-    coalesce(campos->>'valor_custo', 0),
-    coalesce(campos->>'data_inicio',  current_date),
-    campos->>'data_fim');
+    campos->>'nome_tipo_evento',
+    coalesce((campos->>'valor_arrecacao')::float, '0'),
+    coalesce((campos->>'valor_custo')::float, '0'),
+    coalesce((campos->>'data_inicio')::date, current_date),
+    (campos->>'data_fim')::date);
             RETURN;
 
         ELSEIF lower_nome_tabela = 'voluntario_funcao' then
@@ -160,7 +160,7 @@ $$
             RETURN QUERY SELECT doar_para_evento(
     campos->>'nome_evento',
     campos->>'cpf_benfeitor',
-    campos->>'valor_doacao');
+    (campos->>'valor_doacao')::float);
             RETURN;
 
         ELSEIF lower_nome_tabela = 'cesta_basica' then
