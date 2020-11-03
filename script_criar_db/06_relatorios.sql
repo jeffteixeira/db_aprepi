@@ -366,3 +366,22 @@ begin
 	end if;
 end;
 $$ language plpgsql SECURITY DEFINER;
+
+-- EVENTO(S) MAIS LUCRATIVO(S) E MENOS LUCRATIVO(S)
+
+create or replace function obter_eventos_mais_lucrativos()
+returns table(nome varchar(32), lucro float) as $$
+    begin
+	return query select evento.nome, (arrecadacao - custo) as lucro from evento
+	where arrecadacao - custo in (select max(arrecadacao - custo) from evento);
+    end;
+$$ language plpgsql security definer;
+
+create or replace function obter_eventos_menos_lucrativos()
+returns table(nome varchar(32), lucro float) as $$
+    begin
+	return query select evento.nome, (arrecadacao - custo) as lucro from evento
+	where arrecadacao - custo in (select min(arrecadacao - custo) from evento);
+    end;
+$$ language plpgsql security definer;
+
