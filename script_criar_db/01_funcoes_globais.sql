@@ -175,11 +175,14 @@ $$
     DECLARE
         voluntario_ja_alocado boolean;
     BEGIN
-        SELECT EXISTS (SELECT FROM voluntario_funcao WHERE cod_evento=NEW.cod_evento AND cod_voluntario=NEW.cod_voluntario)
-        INTO voluntario_ja_alocado;
-        IF voluntario_ja_alocado THEN
-            raise ERROR_IN_ASSIGNMENT using
-            message='Voluntario já alocado no evento, primeiro remova o voluntario do evento para alocar ele em uma nova função.';
+        IF tg_op='INSERT' THEN
+            voluntario_ja_alocado := EXISTS (
+                SELECT FROM voluntario_funcao WHERE
+                cod_evento=NEW.cod_evento AND cod_voluntario=NEW.cod_voluntario AND NEW.cod_funcao);
+            IF voluntario_ja_alocado THEN
+                RAISE ERROR_IN_ASSIGNMENT USING
+                MESSAGE = 'Voluntario já alocado no evento com esta funcao';
+            end if;
         end if;
         RETURN NEW;
     END;
@@ -322,6 +325,31 @@ $$ language plpgsql;
 CREATE TRIGGER trigger_crm_medico BEFORE INSERT or UPDATE on
 medico for each row
 execute procedure fc_trigger_crm();
+
+-- TRIGGER MEDICO_ESPECIALIDADE
+
+create or replace function fc_trigger_especialidade_medico()
+RETURNS trigger as
+$$
+    DECLARE
+        medico_ja_cadastrado boolean;
+    BEGIN
+        IF tg_op='INSERT' THEN
+            medico_ja_cadastrado := exists(
+                SELECT FROM medico_especialidade WHERE
+                cod_especialidade=NEW.cod_especialidade AND cod_medico=NEW.cod_medico);
+            IF medico_ja_cadastrado THEN
+                RAISE ERROR_IN_ASSIGNMENT USING
+                MESSAGE = 'Medico já cadastrado nesta especialidade';
+            end if;
+        end if;
+        RETURN NEW;
+    END;
+$$ language plpgsql;
+
+CREATE TRIGGER trigger_especialidade_medico BEFORE INSERT or UPDATE on
+medico_especialidade for each row
+execute procedure fc_trigger_especialidade_medico();
 
 -- BUSCA CODIGO
 

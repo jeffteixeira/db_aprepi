@@ -23,6 +23,38 @@ $$
     END;
 $$ language plpgsql SECURITY DEFINER;
 
+CREATE or REPLACE FUNCTION remover_especialidade_de_medico(nome_medico varchar, nome_especialidade varchar)
+RETURNS table (n text) as
+$$
+    DECLARE
+        id_medico int;
+        id_especialidade int;
+        resultado text;
+        linhas_afetadas int;
+    BEGIN
+        id_medico := buscar_cod_medico(nome_medico);
+        id_especialidade := buscar_cod_especialidade(nome_especialidade);
+
+        DELETE FROM medico_especialidade WHERE cod_medico=id_medico AND cod_especialidade=id_especialidade;
+        GET DIAGNOSTICS linhas_afetadas := ROW_COUNT;
+
+        IF linhas_afetadas = 0 THEN
+            resultado := nome_medico || 'não atende na especialidade ' || nome_especialidade;
+        ELSE
+            resultado := nome_medico || 'removido da especialidade ' || nome_especialidade;
+        end if;
+
+        RETURN QUERY SELECT resultado;
+        RETURN;
+
+        EXCEPTION
+        WHEN ERROR_IN_ASSIGNMENT OR CASE_NOT_FOUND THEN
+            RETURN QUERY SELECT SQLERRM;
+        WHEN others THEN
+            RETURN QUERY SELECT CONCAT('Erro durante a execução -> ', SQLERRM);
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
 -- LISTAGEM DE CONSULTAS POR MEDICO E DIA
 
 create or replace view view_consultas_medico as

@@ -98,6 +98,49 @@ RETURNS table (n text) as $$
     END;
 $$ language plpgsql SECURITY DEFINER;
 
+-- select a.nome, cb.quantidade  from cesta_basica cb inner join alimento a on a.cod_alimento = cb.cod_alimento;
+
+create or replace function deletar_item_cesta_basica(nome_alimento varchar)
+RETURNS table (n text) as $$
+    DECLARE
+        id_alimento int;
+        alimento_cadastrado boolean := false;
+
+    BEGIN
+        id_alimento := buscar_cod_alimento(nome_alimento);
+        SELECT EXISTS (SELECT * FROM cesta_basica WHERE cod_alimento = id_alimento) INTO alimento_cadastrado;
+        IF alimento_cadastrado THEN
+            DELETE FROM cesta_basica WHERE cod_alimento = id_alimento;
+            RETURN QUERY SELECT nome_alimento || ' removido(a) da cesta basica';
+            RETURN;
+        ELSE
+            RETURN QUERY SELECT nome_alimento || ' não encontrado(a) na cesta basica';
+            RETURN;
+        end if;
+
+        EXCEPTION
+            WHEN ERROR_IN_ASSIGNMENT OR CASE_NOT_FOUND THEN
+                RETURN QUERY SELECT SQLERRM;
+            WHEN others THEN
+                RETURN QUERY SELECT unnest(
+                    ARRAY[CONCAT('Erro durante q delecao -> ', SQLERRM)]);
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
+create or replace function listar_cesta_basica()
+RETURNS table (n text) as $$
+    BEGIN
+        RETURN QUERY select FORMAT('%1$s %2$s%3$s - %4$s und.',
+                                    a.nome, a.grandeza, a.unidade_de_medida, cb.quantidade) as itens_cesta_basica
+                            from cesta_basica cb inner join alimento a on a.cod_alimento = cb.cod_alimento;
+        RETURN;
+
+        EXCEPTION
+            WHEN others THEN
+                RETURN QUERY SELECT 'Erro durante q consulta -> ', SQLERRM;
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
 -- REALIZAR DOACAO
 
 create or replace function realizar_doacao(cpf_benfeitor varchar, alimentos json, id_doacao int default null)

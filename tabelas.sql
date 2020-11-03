@@ -196,6 +196,8 @@ select * from medico;
 EXPLAIN ANALYZE select buscar_cod_medico('Igor André Farias');
 
 EXPLAIN ANALYSE select nome from medico where nome ilike 'Igor André Farias';
+select FORMAT('%1$s %2$s%3$s - %4$s und.', a.nome, a.grandeza, a.unidade_de_medida, cb.quantidade) as itens_cesta_basica  from cesta_basica cb inner join alimento a on a.cod_alimento = cb.cod_alimento;
+
 CREATE INDEX ON medico(nome);
 
 

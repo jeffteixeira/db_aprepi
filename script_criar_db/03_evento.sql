@@ -166,7 +166,6 @@ $$
         id_evento := buscar_cod_evento(nome_evento);
         id_voluntario := buscar_cod_voluntario(cpf_voluntario);
 
-
         SELECT dt_fim INTO dt_fim_evento FROM evento WHERE cod_evento=id_evento;
         SELECT nome into nome_voluntario FROM voluntario WHERE cod_voluntario=id_voluntario;
 
@@ -187,3 +186,64 @@ $$
             RETURN QUERY SELECT CONCAT('Erro durante a remoção -> ', SQLERRM);
     END
 $$ language plpgsql;
+
+-- REMOVER VOLUNTARIO DE EVENTO PELA FUNCAO
+
+create or replace function remover_voluntario_de_evento_pela_funcao(nome_evento varchar, cpf_voluntario varchar, nome_funcao varchar)
+RETURNS table (n text) as
+$$
+    DECLARE
+        id_evento int;
+        id_voluntario int;
+        id_funcao int;
+        nome_voluntario varchar;
+        dt_fim_evento date;
+    BEGIN
+        id_evento := buscar_cod_evento(nome_evento);
+        id_voluntario := buscar_cod_voluntario(cpf_voluntario);
+        id_funcao := buscar_cod_funcao(nome_funcao);
+
+        SELECT dt_fim INTO dt_fim_evento FROM evento WHERE cod_evento=id_evento;
+        SELECT nome into nome_voluntario FROM voluntario WHERE cod_voluntario=id_voluntario;
+
+        IF dt_fim_evento IS NOT NULL AND dt_fim_evento < current_date THEN
+            RETURN QUERY SELECT 'Não é possivel remover um voluntário de um evento já encerrado.';
+            RETURN;
+        ELSEIF NOT EXISTS(SELECT FROM voluntario_funcao WHERE cod_evento=id_evento AND cod_voluntario=id_voluntario) THEN
+            RETURN QUERY SELECT FORMAT('%1$s não está alocado no evento %2$s.', nome_voluntario, nome_evento);
+            RETURN;
+        end if;
+        DELETE FROM voluntario_funcao WHERE cod_evento=id_evento and cod_voluntario=id_voluntario and cod_funcao=id_funcao;
+        RETURN QUERY SELECT FORMAT('%1$s removido da funcao %2$s do evento %3$s com sucesso.',
+            nome_voluntario, nome_funcao, nome_evento);
+
+        EXCEPTION
+        WHEN ERROR_IN_ASSIGNMENT OR CASE_NOT_FOUND THEN
+            RETURN QUERY SELECT SQLERRM;
+        WHEN others THEN
+            RETURN QUERY SELECT CONCAT('Erro durante a remoção -> ', SQLERRM);
+    END
+$$ language plpgsql;
+
+-- LISTAR FUNCOES VOLUNTARIO NO EVENTO
+
+create or replace function listar_funcoes_voluntario_evento(nome_evento varchar)
+RETURNS table (n text) as $$
+    DECLARE
+        id_evento int;
+    BEGIN
+        id_evento := buscar_cod_evento(nome_evento);
+
+        RETURN QUERY select FORMAT('%1$s, (%2$s%)',
+                                    v.nome, string_agg(f.nome, ','))
+                            from voluntario_funcao vf
+                            inner join voluntario v on vf.cod_voluntario = v.cod_voluntario
+                            inner join funcao f on vf.cod_funcao = f.cod_funcao
+                            WHERE vf.cod_evento=id_evento GROUP BY v.nome;
+        RETURN;
+
+        EXCEPTION
+            WHEN others THEN
+                RETURN QUERY SELECT 'Erro durante a consulta -> ', SQLERRM;
+    END;
+$$ language plpgsql SECURITY DEFINER;
