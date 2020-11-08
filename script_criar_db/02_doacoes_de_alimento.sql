@@ -50,6 +50,14 @@ RETURNS table (alimentos_json json, relatorio_list text[]) as $$
         END;
 $$ language plpgsql SECURITY DEFINER;
 
+create or replace function listar_alimentos()
+RETURNS table (n text) as $$
+    BEGIN
+        RETURN QUERY select FORMAT('%s %s%s -> %s und. disponíveis', nome, grandeza, unidade_de_medida, quantidade, descricao) from alimento;
+        RETURN;
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
 -- INFORMAR FALECIMENTO DE SOCIO
 
 create or replace function informar_falecimento_socio(cpf varchar)
@@ -97,8 +105,6 @@ RETURNS table (n text) as $$
                     ARRAY[CONCAT('Erro durante o cadastro -> ', SQLERRM)]);
     END;
 $$ language plpgsql SECURITY DEFINER;
-
--- select a.nome, cb.quantidade  from cesta_basica cb inner join alimento a on a.cod_alimento = cb.cod_alimento;
 
 create or replace function deletar_item_cesta_basica(nome_alimento varchar)
 RETURNS table (n text) as $$
