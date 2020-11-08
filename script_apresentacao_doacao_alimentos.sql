@@ -44,6 +44,9 @@ select informar_falecimento_socio('576.780.563-62');
 
 select receber_doacao('576.780.563-62', json '{"farinha": 2}');
 
+select atualizar('SOCIO', 'nome', 'Laura Betina Rezende', json '{"dt_falecimento": "2020-11-11"}');
+
+select deletar('SOCIO', 'cpf', '576.780.563-62');
 
 
 
