@@ -19,13 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33f9c5df-a2de-4f5b-b325-cfa0eade079f" name="Default Changelist" comment="atualizacao 02_doacoes_de_alimento.sql">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619/storage_v2/_src_/database/db_aprepi._D5E_A/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619/storage_v2/_src_/database/db_aprepi._D5E_A/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619/storage_v2/_src_/database/db_aprepi._D5E_A/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ee96d57-95bb-47a8-bf52-ef139c2b2619/storage_v2/_src_/database/db_aprepi._D5E_A/schema/public.abK9xQ.zip" afterDir="false" />
+    <list default="true" id="33f9c5df-a2de-4f5b-b325-cfa0eade079f" name="Default Changelist" comment="atualizacao 03_evento.sql e permissoes.sql">
+      <change afterPath="$PROJECT_DIR$/script_criar_db/07_permissoes.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script_criar_db/08_popular_banco.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/permissoes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/permissoes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_criar_db/03_evento.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/03_evento.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/00_tabelas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/00_tabelas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/01_funcoes_globais.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/01_funcoes_globais.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/07_constrains_on_delete.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/extra_constrains_on_delete.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/extra_tabelas_com_ondelete.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/extra_tabelas_com_ondelete.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,37 +82,38 @@
     <MESSAGE value="adicao de script para apresentacao de doacao de alimentos" />
     <MESSAGE value="atualizacao script_apresentacao_doacao_alimentos.sql" />
     <MESSAGE value="atualizacao 02_doacoes_de_alimento.sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualizacao 02_doacoes_de_alimento.sql" />
+    <MESSAGE value="atualizacao 03_evento.sql e permissoes.sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualizacao 03_evento.sql e permissoes.sql" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604253483626">
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604945911411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604253483626" />
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604945911411" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1604143399669">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604143399669" />
-    <state width="1103" height="179" key="GridCell.Tab.0.bottom" timestamp="1604879984475">
+    <state width="1103" height="179" key="GridCell.Tab.0.bottom" timestamp="1604951201057">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604879984475" />
-    <state width="1103" height="179" key="GridCell.Tab.0.center" timestamp="1604879984475">
+    <state width="1103" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604951201057" />
+    <state width="1103" height="179" key="GridCell.Tab.0.center" timestamp="1604951201057">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604879984475" />
-    <state width="1103" height="179" key="GridCell.Tab.0.left" timestamp="1604879984475">
+    <state width="1103" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604951201057" />
+    <state width="1103" height="179" key="GridCell.Tab.0.left" timestamp="1604951201057">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604879984475" />
-    <state width="1103" height="179" key="GridCell.Tab.0.right" timestamp="1604879984475">
+    <state width="1103" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604951201057" />
+    <state width="1103" height="179" key="GridCell.Tab.0.right" timestamp="1604951201057">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604879984475" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604874107125">
+    <state width="1103" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604951201057" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604880206726">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604874107125" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604880206726" />
     <state x="493" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1604253786127">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -9,13 +9,14 @@ CREATE TABLE IF NOT EXISTS ALIMENTO (
 
 CREATE TABLE IF NOT EXISTS CESTA_BASICA (
     cod_item_cesta serial primary key,
-    cod_alimento int references alimento(cod_alimento),
+    cod_alimento int references alimento(cod_alimento) ON DELETE CASCADE,
     quantidade int not null
 );
 
 CREATE TABLE IF NOT EXISTS SOCIO (
     cod_socio serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     telefone varchar(15) null,
@@ -25,6 +26,7 @@ CREATE TABLE IF NOT EXISTS SOCIO (
 CREATE TABLE IF NOT EXISTS BENFEITOR (
     cod_benfeitor serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     telefone varchar(15) null
@@ -32,14 +34,14 @@ CREATE TABLE IF NOT EXISTS BENFEITOR (
 
 CREATE TABLE IF NOT EXISTS DOACAO (
     cod_doacao serial primary key,
-    cod_benfeitor int references benfeitor(cod_benfeitor),
+    cod_benfeitor int references benfeitor(cod_benfeitor) ON DELETE SET NULL,
     dt_doacao timestamp default current_timestamp
 );
 
 CREATE TABLE IF NOT EXISTS ITEM_DOACAO (
     cod_item_doacao serial primary key,
-    cod_doacao int references doacao(cod_doacao),
-    cod_alimento int references alimento(cod_alimento),
+    cod_doacao int references doacao(cod_doacao) ON DELETE CASCADE,
+    cod_alimento int references alimento(cod_alimento) ON DELETE CASCADE,
     quantidade int not null,
     grandeza int not null,
     unidade_de_medida varchar(2) not null
@@ -47,14 +49,14 @@ CREATE TABLE IF NOT EXISTS ITEM_DOACAO (
 
 CREATE TABLE IF NOT EXISTS RECEBIMENTO (
     cod_recebimento serial primary key,
-    cod_socio int references socio(cod_socio),
+    cod_socio int references socio(cod_socio) ON DELETE SET NULL,
     dt_recebimento timestamp default current_timestamp
 );
 
 CREATE TABLE IF NOT EXISTS ITEM_RECEBIMENTO (
     cod_item_recebimento serial primary key,
-    cod_alimento int references alimento(cod_alimento),
-    cod_recebimento int references recebimento(cod_recebimento),
+    cod_alimento int references alimento(cod_alimento) ON DELETE CASCADE,
+    cod_recebimento int references recebimento(cod_recebimento) ON DELETE CASCADE,
     quantidade int not null,
     grandeza int not null,
     unidade_de_medida varchar(2) not null
@@ -63,6 +65,7 @@ CREATE TABLE IF NOT EXISTS ITEM_RECEBIMENTO (
 CREATE TABLE IF NOT EXISTS MEDICO (
     cod_medico serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     crm varchar(20) unique not null,
@@ -77,14 +80,14 @@ CREATE TABLE IF NOT EXISTS ESPECIALIDADE (
 
 CREATE TABLE IF NOT EXISTS MEDICO_ESPECIALIDADE (
     cod_medico_especialidade serial primary key,
-    cod_especialidade int references especialidade(cod_especialidade),
-    cod_medico int references medico(cod_medico)
+    cod_especialidade int references especialidade(cod_especialidade) ON DELETE CASCADE,
+    cod_medico int references medico(cod_medico) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS CONSULTA (
     cod_consulta serial primary key,
-    cod_socio int references socio(cod_socio),
-    cod_medico_especialidade int references medico_especialidade(cod_medico_especialidade),
+    cod_socio int references socio(cod_socio) ON DELETE CASCADE,
+    cod_medico_especialidade int references medico_especialidade(cod_medico_especialidade) ON DELETE CASCADE,
     dt_consulta date not null,
     hora_consulta time not null
 );
@@ -92,6 +95,7 @@ CREATE TABLE IF NOT EXISTS CONSULTA (
 CREATE TABLE IF NOT EXISTS VOLUNTARIO (
     cod_voluntario serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     telefone varchar(15) null
@@ -111,7 +115,7 @@ CREATE TABLE IF NOT EXISTS TIPO_EVENTO (
 
 CREATE TABLE IF NOT EXISTS EVENTO (
     cod_evento serial primary key,
-    cod_tipo_evento int references tipo_evento(cod_tipo_evento),
+    cod_tipo_evento int references tipo_evento(cod_tipo_evento) ON DELETE SET NULL,
     arrecadacao float not null default 0,
     custo float not null default 0,
     nome varchar(32) not null,
@@ -121,14 +125,14 @@ CREATE TABLE IF NOT EXISTS EVENTO (
 
 CREATE TABLE IF NOT EXISTS VOLUNTARIO_FUNCAO (
     cod_voluntario_funcao serial primary key,
-    cod_voluntario int references voluntario(cod_voluntario),
-    cod_evento int references evento(cod_evento),
-    cod_funcao int references funcao(cod_funcao)
+    cod_voluntario int references voluntario(cod_voluntario) ON DELETE CASCADE,
+    cod_evento int references evento(cod_evento) ON DELETE CASCADE,
+    cod_funcao int references funcao(cod_funcao) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS BENFEITOR_EVENTO (
     cod_benfeitor_evento serial primary key,
-    cod_benfeitor int references benfeitor(cod_benfeitor),
-    cod_evento int references evento(cod_evento),
+    cod_benfeitor int references benfeitor(cod_benfeitor) ON DELETE SET NULL,
+    cod_evento int references evento(cod_evento) ON DELETE CASCADE,
     valor_doado float not null
 );

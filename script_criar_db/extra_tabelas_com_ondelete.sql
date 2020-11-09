@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS CESTA_BASICA (
 CREATE TABLE IF NOT EXISTS SOCIO (
     cod_socio serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     telefone varchar(15) null,
@@ -25,6 +26,7 @@ CREATE TABLE IF NOT EXISTS SOCIO (
 CREATE TABLE IF NOT EXISTS BENFEITOR (
     cod_benfeitor serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     telefone varchar(15) null
@@ -63,6 +65,7 @@ CREATE TABLE IF NOT EXISTS ITEM_RECEBIMENTO (
 CREATE TABLE IF NOT EXISTS MEDICO (
     cod_medico serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     crm varchar(20) unique not null,
@@ -92,6 +95,7 @@ CREATE TABLE IF NOT EXISTS CONSULTA (
 CREATE TABLE IF NOT EXISTS VOLUNTARIO (
     cod_voluntario serial primary key,
     nome varchar(50) not null,
+    genero varchar(10) not null,
     dt_nasc date not null,
     cpf varchar(14) unique not null,
     telefone varchar(15) null

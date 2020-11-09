@@ -529,9 +529,26 @@ $$
     END;
 $$ language plpgsql SECURITY DEFINER;
 
+-- TRIGGER GENERO
 
+create or replace function trigger_genero()
+returns trigger as $$
+    begin
+	if new.genero not ilike 'masculino' and new.genero not ilike 'feminino' and new.genero not ilike 'outro' then
+	    raise exception 'Gênero inválido!';
+	end if;
+	return new;
+    end;
+$$ language plpgsql security definer;
 
+create trigger trigger_genero_socio before insert or update
+on socio for each row execute procedure trigger_genero();
 
+create trigger trigger_genero_benfeitor before insert or update
+on benfeitor for each row execute procedure trigger_genero();
 
+create trigger trigger_genero_medico before insert or update
+on medico for each row execute procedure trigger_genero();
 
-
+create trigger trigger_genero_voluntario before insert or update
+on voluntario for each row execute procedure trigger_genero();

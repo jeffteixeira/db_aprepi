@@ -1,8 +1,3 @@
--- https://dba.stackexchange.com/questions/140670/postgres-inherit-from-one-role-and-not-another
--- https://stackoverflow.com/questions/52709231/how-postgresql-give-permission-what-execute-a-function-in-schema-to-user
--- https://www.postgresqltutorial.com/postgresql-administration/postgresql-grant/
--- https://flaviocopes.com/postgres-user-permissions/#:~:text=Group%20roles,roles%20have%20the%20INHERIT%20attribute.
-
 -- CONFIGURACAO DE FUNCOES
 ALTER FUNCTION cadastrar(nome_tabela varchar, campos json) SECURITY DEFINER SET search_path = default;
 REVOKE ALL ON FUNCTION cadastrar(nome_tabela varchar, campos json) FROM PUBLIC;
@@ -23,18 +18,7 @@ REVOKE ALL ON FUNCTION deletar_item_cesta_basica(nome_alimento varchar) FROM PUB
 REVOKE ALL ON FUNCTION listar_cesta_basica() FROM PUBLIC;
 REVOKE ALL ON FUNCTION realizar_doacao(cpf_benfeitor varchar, alimentos json, id_doacao int) FROM PUBLIC;
 REVOKE ALL ON FUNCTION receber_doacao(cpf_socio varchar, alimentos json, id_recebimento int) FROM PUBLIC;
-DELETE FROM benfeitor WHERE cod_benfeitor IN ();
-select nome, count(*) from benfeitor group by nome
-HAVING count(*) > 1;
 
-DELETE FROM
-    benfeitor a
-        USING benfeitor b
-WHERE
-    a.cod_benfeitor < b.cod_benfeitor
-    AND a.nome = b.nome;
-
-select count(*) from benfeitor;
 -- EVENTO
 REVOKE ALL ON FUNCTION criar_evento(
 nome_evento varchar,
@@ -90,6 +74,7 @@ GRANT SELECT ON medico TO funcionario;
 GRANT SELECT ON especialidade TO funcionario;
 
 CREATE USER flavio PASSWORD 'postgres01';
+
 GRANT funcionario TO flavio;
 
 -- ADMINISTRADOR
@@ -98,10 +83,8 @@ CREATE ROLE administrador;
 GRANT funcionario to administrador;
 GRANT EXECUTE ON FUNCTION deletar(nome_tabela varchar, chave varchar, valor varchar) TO administrador;
 
-
 CREATE USER jose PASSWORD 'postgres01';
 GRANT administrador TO jose;
-
 
 CREATE ROLE medico;
 GRANT EXECUTE ON FUNCTION listar_consultas_medico(_nome_medico varchar, data_consulta date) TO medico;
@@ -117,14 +100,10 @@ GRANT EXECUTE ON FUNCTION relatorio_doacoes_feitas(campos json) TO doacoes;
 CREATE USER luan PASSWORD 'postgres01';
 GRANT doacoes TO luan;
 
-select usesysid as user_id,
-       usename as username,
-       usesuper as is_superuser,
-       passwd as password_md5,
-       valuntil as password_expiration
-from pg_shadow
-order by usename;
-
-
-
-
+-- select usesysid as user_id,
+--        usename as username,
+--        usesuper as is_superuser,
+--        passwd as password_md5,
+--        valuntil as password_expiration
+-- from pg_shadow
+-- order by usename;
