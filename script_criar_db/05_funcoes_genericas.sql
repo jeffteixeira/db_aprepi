@@ -84,6 +84,28 @@ $$
                 campos->>'hora');
             RETURN;
 
+		ELSEIF lower_nome_tabela = 'medico' then
+            if ((select cod_medico from medico where nome ilike campos->>'nome') is not null) then
+           		RAISE ERROR_IN_ASSIGNMENT USING
+                MESSAGE = 'Médico(a) já cadastrado(a)';
+            elseif (campos->>'nome_especialidade' is null) or (buscar_cod_especialidade(campos->>'nome_especialidade') is null) then
+            	RAISE ERROR_IN_ASSIGNMENT USING
+                MESSAGE = 'Médicos não podem ser cadastrados sem uma especialidade';
+            end if;
+
+           	return query select cadastrar_medico(campos);
+            RETURN QUERY select alocar_medico_em_especialidade(campos->>'nome',campos->>'nome_especialidade');
+            RETURN;
+
+        elseif lower_nome_tabela = 'medico_especialidade' then
+			if (qntd_especialidades_medico(campos->>'nome') > 1) then
+				RAISE ERROR_IN_ASSIGNMENT USING
+                MESSAGE = 'O médico já possui 2 especialidades cadastradas';
+            end if;
+
+            RETURN QUERY select alocar_medico_em_especialidade(campos->>'nome',campos->>'nome_especialidade');
+            RETURN;
+
 		ELSEIF lower_nome_tabela = 'medico_especialidade' then
 
 		    IF campos->'nome_medico' IS NULL THEN
@@ -262,7 +284,6 @@ CREATE OR REPLACE FUNCTION cadastrar(nome_tabela varchar, campos json)
             forbidden_fields_by_table json := '{"SOCIO": ["dt_falecimento", "cod_socio"],' ||
                                               '"BENFEITOR": ["cod_benfeitor"],' ||
                                               '"TIPO_EVENTO": ["cod_tipo_evento"],' ||
-                                              '"MEDICO": ["cod_medico"],' ||
                                               '"ESPECIALIDADE": ["cod_especialidade"],' ||
                                               '"VOLUNTARIO": ["cod_voluntario"],' ||
                                               '"FUNCAO": ["cod_funcao"],' ||
@@ -272,6 +293,7 @@ CREATE OR REPLACE FUNCTION cadastrar(nome_tabela varchar, campos json)
                                           '"doacao", ' ||
                                           '"item_recebimento", ' ||
                                           '"item_doacao", ' ||
+                                          '"medico", ' ||
                                           '"medico_especialidade", ' ||
                                           '"voluntario_funcao", ' ||
                                           '"evento", ' ||
@@ -313,7 +335,7 @@ CREATE OR REPLACE FUNCTION cadastrar(nome_tabela varchar, campos json)
                 RETURN QUERY SELECT SQLERRM;
             WHEN others THEN
                 RETURN QUERY SELECT 'Erro durante o cadastro -> ' || SQLERRM;
-        END;
+        END
     $$ language plpgsql SECURITY DEFINER;
 
 --  ATUALIZAR_GENERICO

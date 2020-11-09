@@ -286,3 +286,36 @@ RETURNS table (n text) as $$
                 RETURN QUERY SELECT 'Erro durante a consulta -> ', SQLERRM;
     END
 $$ language plpgsql;
+
+-- LISTAR TIPO EVENTO
+
+create or replace function listar_tipos_evento()
+RETURNS table (nome_tipo_evento varchar, descr varchar) as $$
+    BEGIN
+        RETURN QUERY SELECT nome::varchar, descricao::varchar from tipo_evento;
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
+-- drop function listar_tipos_evento();
+
+
+-- LISTAR TIPO EVENTO
+
+create or replace function listar_eventos()
+RETURNS table (nome_evento varchar, data_inicio date, data_fim date) as $$
+    BEGIN
+        RETURN QUERY SELECT nome, dt_inicio, dt_fim from evento;
+    END;
+$$ language plpgsql SECURITY DEFINER;
+
+-- drop function listar_eventos();
+
+-- LISTAR FUNCOES
+
+create or replace function listar_funcoes()
+RETURNS table (nome_funcao varchar, descr varchar) as $$
+    BEGIN
+        RETURN QUERY SELECT nome::varchar, descricao::varchar from funcao;
+    END;
+$$ language plpgsql SECURITY DEFINER;
+

@@ -1,4 +1,24 @@
 
+-- CADASTRAR MEDICO
+create or replace function cadastrar_medico(campos json)
+returns table (n text) as
+$$
+	declare
+		quantity_spec int;
+		data_nasc date := campos->>'dt_nasc';
+	begin
+		insert into medico values(default,campos->>'nome',data_nasc,campos->>'cpf',campos->>'crm',campos->>'telefone');
+
+		RETURN QUERY SELECT FORMAT('Dr(a). %1$s cadastrado(a) com sucesso.', campos->>'nome');
+
+        EXCEPTION
+        WHEN ERROR_IN_ASSIGNMENT OR CASE_NOT_FOUND THEN
+            RETURN QUERY SELECT SQLERRM;
+        WHEN others THEN
+            RETURN QUERY SELECT CONCAT('Erro durante a execução -> ', SQLERRM);
+	END;
+$$ language plpgsql SECURITY DEFINER;
+
 -- ALOCAR MEDICO EM ESPECIALIDADE
 
 CREATE or REPLACE FUNCTION alocar_medico_em_especialidade(nome_medico varchar, nome_especialidade varchar)
