@@ -247,3 +247,42 @@ RETURNS table (n text) as $$
                 RETURN QUERY SELECT 'Erro durante a consulta -> ', SQLERRM;
     END;
 $$ language plpgsql SECURITY DEFINER;
+
+
+-- LISTAR EVENTOS ATIVOS OU NAO QUE VOLUNTARIO ESTA PARTICIPANDO
+
+create or replace view view_listar_eventos_por_funcionario as
+    select vf.cod_voluntario, e.nome as nome_evento, f.nome as nome_funcao, e.dt_fim
+                            from voluntario_funcao vf
+                            inner join voluntario v on vf.cod_voluntario = v.cod_voluntario
+                            inner join funcao f on vf.cod_funcao = f.cod_funcao
+                            inner join evento e on vf.cod_evento = e.cod_evento;
+
+create or replace function listar_eventos_por_voluntario(cpf_voluntario varchar, eventos_ativos boolean default true)
+RETURNS table (n text) as $$
+    DECLARE
+        id_voluntario int;
+    BEGIN
+        id_voluntario := buscar_cod_voluntario(cpf_voluntario);
+
+        if eventos_ativos THEN
+            RETURN QUERY select FORMAT('%1$s com as funcoes (%2$s%)',
+                                    nome_evento, string_agg(nome_funcao, ','))
+                            from view_listar_eventos_por_funcionario
+                            WHERE cod_voluntario = id_voluntario AND
+                            dt_fim is null or dt_fim >= current_date GROUP BY nome_evento;
+        ELSE
+            RETURN QUERY select FORMAT('%1$s com as funcoes (%2$s%)',
+                                    nome_evento, string_agg(nome_funcao, ','))
+                            from view_listar_eventos_por_funcionario
+                            WHERE cod_voluntario = id_voluntario GROUP BY nome_evento;
+        END IF;
+        RETURN;
+
+        EXCEPTION
+            WHEN ERROR_IN_ASSIGNMENT OR CASE_NOT_FOUND THEN
+                RETURN QUERY SELECT SQLERRM;
+            WHEN others THEN
+                RETURN QUERY SELECT 'Erro durante a consulta -> ', SQLERRM;
+    END
+$$ language plpgsql;

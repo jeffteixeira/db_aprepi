@@ -12,16 +12,19 @@ REVOKE ALL ON FUNCTION atualizar(nome_tabela varchar, chave varchar, valor varch
 
 ALTER FUNCTION deletar(nome_tabela varchar, chave varchar, valor varchar) SECURITY DEFINER SET search_path = default;
 REVOKE ALL ON FUNCTION deletar(nome_tabela varchar, chave varchar, valor varchar) FROM PUBLIC;
-
 REVOKE ALL ON FUNCTION encaminhar_tabela(nome_tabela varchar, campos json) FROM PUBLIC;
+
+-- DOACAO DE ALIMENTOS
 REVOKE ALL ON FUNCTION montar_cesta_basica() FROM PUBLIC;
 REVOKE ALL ON FUNCTION formatar_alimentos(alimentos json) FROM PUBLIC;
 REVOKE ALL ON FUNCTION informar_falecimento_socio(cpf varchar) FROM PUBLIC;
 REVOKE ALL ON FUNCTION inserir_item_cesta_basica(nome_alimento varchar, qtd int) FROM PUBLIC;
+REVOKE ALL ON FUNCTION deletar_item_cesta_basica(nome_alimento varchar) FROM PUBLIC;
+REVOKE ALL ON FUNCTION listar_cesta_basica() FROM PUBLIC;
 REVOKE ALL ON FUNCTION realizar_doacao(cpf_benfeitor varchar, alimentos json, id_doacao int) FROM PUBLIC;
 REVOKE ALL ON FUNCTION receber_doacao(cpf_socio varchar, alimentos json, id_recebimento int) FROM PUBLIC;
 
-
+-- EVENTO
 REVOKE ALL ON FUNCTION criar_evento(
 nome_evento varchar,
 nome_tipo_evento varchar,
@@ -35,8 +38,14 @@ REVOKE ALL ON FUNCTION atualizar_data_final_evento(nome_evento varchar, data_fim
 
 REVOKE ALL ON FUNCTION alocar_voluntario_em_evento(nome_evento varchar, cpf_voluntario varchar, nome_funcao varchar) FROM PUBLIC;
 REVOKE ALL ON FUNCTION remover_voluntario_de_evento(nome_evento varchar, cpf_voluntario varchar) FROM PUBLIC;
+REVOKE ALL ON FUNCTION remover_voluntario_de_evento_pela_funcao(
+    nome_evento varchar, cpf_voluntario varchar, nome_funcao varchar) FROM PUBLIC;
+REVOKE ALL ON FUNCTION listar_funcoes_voluntario_evento(nome_evento varchar) FROM PUBLIC;
+REVOKE ALL ON FUNCTION listar_eventos_por_voluntario(cpf_voluntario varchar, eventos_ativos boolean) FROM PUBLIC;
 
+-- CONSULTA MEDICO
 REVOKE ALL ON FUNCTION alocar_medico_em_especialidade(nome_medico varchar, nome_especialidade varchar) FROM PUBLIC;
+REVOKE ALL ON FUNCTION remover_especialidade_de_medico(nome_medico varchar, nome_especialidade varchar) FROM PUBLIC;
 REVOKE ALL ON FUNCTION listar_consultas_medico(_nome_medico varchar, data_consulta date) FROM PUBLIC;
 REVOKE ALL ON FUNCTION marcar_consulta(
     nome_medico varchar,
@@ -60,13 +69,6 @@ CREATE ROLE funcionario;
 GRANT EXECUTE ON FUNCTION cadastrar(varchar, json) TO funcionario;
 GRANT EXECUTE ON FUNCTION atualizar(nome_tabela varchar, chave varchar, valor varchar, campos json) TO funcionario;
 
--- LISTAR CESTA BASICA
--- LISTAR ESPECIALIDADE DE UM MEDICO
--- LISTAR FUNCOES DE VOLUNTARIO
--- limitar quantidade de funcoes de funcionario por evento
--- remover voluntario pela funcao que ocupa
--- fzr a mesma coisa para medico
-
 GRANT SELECT ON socio TO funcionario;
 GRANT SELECT ON benfeitor TO funcionario;
 GRANT SELECT ON alimento TO funcionario;
@@ -75,13 +77,6 @@ GRANT SELECT ON voluntario TO funcionario;
 GRANT SELECT ON funcao TO funcionario;
 GRANT SELECT ON medico TO funcionario;
 GRANT SELECT ON especialidade TO funcionario;
-
-select deletar('a', 'a', 'a');
-
-
-
-
-
 
 CREATE USER flavio PASSWORD 'postgres01';
 GRANT funcionario TO flavio;
@@ -96,6 +91,28 @@ GRANT EXECUTE ON FUNCTION deletar(nome_tabela varchar, chave varchar, valor varc
 CREATE USER jose PASSWORD 'postgres01';
 GRANT administrador TO jose;
 
+
+CREATE ROLE medico;
+GRANT EXECUTE ON FUNCTION listar_consultas_medico(_nome_medico varchar, data_consulta date) TO medico;
+CREATE USER heloisa PASSWORD 'postgres01';
+GRANT medico TO heloisa;
+
+
+CREATE ROLE doacoes;
+GRANT EXECUTE ON FUNCTION relatorio_doacoes_feitas_eventos(campos json) TO doacoes;
+GRANT EXECUTE ON FUNCTION relatorio_doacoes_recebidas(campos json) TO doacoes;
+GRANT EXECUTE ON FUNCTION relatorio_doacoes_feitas(campos json) TO doacoes;
+
+CREATE USER luan PASSWORD 'postgres01';
+GRANT doacoes TO luan;
+
+select usesysid as user_id,
+       usename as username,
+       usesuper as is_superuser,
+       passwd as password_md5,
+       valuntil as password_expiration
+from pg_shadow
+order by usename;
 
 
 
