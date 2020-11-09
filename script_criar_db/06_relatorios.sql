@@ -70,30 +70,30 @@ RETURNS table (relatorio text) as $$
             id_socio := buscar_cod_socio(campos->>'cpf_socio');
             RETURN QUERY SELECT 'FILTRO POR: SOCIO';
             RETURN QUERY
-                SELECT FORMAT('%1$s -> %2$s %3$s', nome, (sum(grandeza) * sum(quantidade)), unidade_de_medida) FROM
-            view_doacoes_recebidas WHERE cod_socio = id_socio GROUP BY nome, unidade_de_medida;
+                SELECT FORMAT('%1$s -> %2$s %3$s', nome, (grandeza * sum(quantidade)), unidade_de_medida) FROM
+            view_doacoes_recebidas WHERE cod_socio = id_socio GROUP BY nome, unidade_de_medida, grandeza;
 
         ELSEIF campos->'dt_inicial' IS NOT NULL and campos->'dt_final' IS NULL THEN
             RETURN QUERY SELECT FORMAT('FILTRO POR: DATA(%1$s até %2$s)', (campos->>'dt_inicial')::date, current_date);
 
             RETURN QUERY SELECT FORMAT('%1$s -> %2$s %3$s', x.nome, x.quantidade_total, x.unidade_de_medida) FROM
-            (SELECT nome, (sum(grandeza) * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
+            (SELECT nome, (grandeza * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
             view_doacoes_recebidas WHERE dt_recebimento between (campos->>'dt_inicial')::date and current_date
-            GROUP BY nome, unidade_de_medida order by quantidade_total) x;
+            GROUP BY nome, unidade_de_medida, grandeza order by quantidade_total) x;
 
         ELSEIF campos->'dt_inicial' IS NOT NULL and campos->'dt_final' IS NOT NULL THEN
             RETURN QUERY SELECT FORMAT('FILTRO POR: DATA(%1$s até %2$s)', (campos->>'dt_inicial')::date,(campos->>'dt_final')::date);
 
             RETURN QUERY SELECT FORMAT('%1$s -> %2$s %3$s', x.nome, x.quantidade_total, x.unidade_de_medida) FROM
-            (SELECT nome, (sum(grandeza) * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
+            (SELECT nome, (grandeza * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
             view_doacoes_recebidas WHERE dt_recebimento between (campos->>'dt_inicial')::date and (campos->>'dt_final')::date
-            GROUP BY nome, unidade_de_medida order by quantidade_total) x;
+            GROUP BY nome, unidade_de_medida, grandeza order by quantidade_total) x;
 
         ELSE
             RETURN QUERY SELECT 'FILTRO POR: GERAL';
             RETURN QUERY SELECT FORMAT('%1$s -> %2$s %3$s', x.nome, x.quantidade_total, x.unidade_de_medida) FROM
-            (SELECT nome, (sum(grandeza) * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
-            view_doacoes_recebidas GROUP BY nome, unidade_de_medida order by quantidade_total) x;
+            (SELECT nome, (grandeza * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
+            view_doacoes_recebidas GROUP BY nome, unidade_de_medida, grandeza order by quantidade_total) x;
         END IF;
 
         RETURN;
@@ -124,30 +124,30 @@ RETURNS table (relatorio text) as $$
             id_benfeitor := buscar_cod_benfeitor(campos->>'cpf_benfeitor');
             RETURN QUERY SELECT 'FILTRO POR: BENFEITOR';
             RETURN QUERY
-                SELECT FORMAT('%1$s -> %2$s %3$s', nome, (sum(grandeza) * sum(quantidade)), unidade_de_medida) FROM
-            view_doacoes_feitas WHERE cod_benfeitor = id_benfeitor GROUP BY nome, unidade_de_medida;
+                SELECT FORMAT('%1$s -> %2$s %3$s', nome, (grandeza * sum(quantidade)), unidade_de_medida) FROM
+            view_doacoes_feitas WHERE cod_benfeitor = id_benfeitor GROUP BY nome, unidade_de_medida, grandeza;
 
         ELSEIF campos->'dt_inicial' IS NOT NULL and campos->'dt_final' IS NULL THEN
             RETURN QUERY SELECT FORMAT('FILTRO POR: DATA(%1$s até %2$s)', (campos->>'dt_inicial')::date, current_date);
 
             RETURN QUERY SELECT FORMAT('%1$s -> %2$s %3$s', x.nome, x.quantidade_total, x.unidade_de_medida) FROM
-            (SELECT nome, (sum(grandeza) * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
+            (SELECT nome, (grandeza * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
             view_doacoes_feitas WHERE dt_doacao between (campos->>'dt_inicial')::date and current_date
-            GROUP BY nome, unidade_de_medida order by quantidade_total) x;
+            GROUP BY nome, unidade_de_medida, grandeza order by quantidade_total) x;
 
         ELSEIF campos->'dt_inicial' IS NOT NULL and campos->'dt_final' IS NOT NULL THEN
             RETURN QUERY SELECT FORMAT('FILTRO POR: DATA(%1$s até %2$s)', (campos->>'dt_inicial')::date,(campos->>'dt_final')::date);
 
             RETURN QUERY SELECT FORMAT('%1$s -> %2$s %3$s', x.nome, x.quantidade_total, x.unidade_de_medida) FROM
-            (SELECT nome, (sum(grandeza) * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
+            (SELECT nome, (grandeza * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
             view_doacoes_feitas WHERE dt_doacao between (campos->>'dt_inicial')::date and (campos->>'dt_final')::date
-            GROUP BY nome, unidade_de_medida order by quantidade_total) x;
+            GROUP BY nome, unidade_de_medida, grandeza order by quantidade_total) x;
 
         ELSE
             RETURN QUERY SELECT 'FILTRO POR: GERAL';
             RETURN QUERY SELECT FORMAT('%1$s -> %2$s %3$s', x.nome, x.quantidade_total, x.unidade_de_medida) FROM
-            (SELECT nome, (sum(grandeza) * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
-            view_doacoes_feitas GROUP BY nome, unidade_de_medida order by quantidade_total) x;
+            (SELECT nome, (grandeza * sum(quantidade)) as quantidade_total, unidade_de_medida FROM
+            view_doacoes_feitas GROUP BY nome, unidade_de_medida, grandeza order by quantidade_total) x;
         END IF;
 
         RETURN;

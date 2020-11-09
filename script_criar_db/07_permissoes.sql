@@ -63,6 +63,12 @@ CREATE ROLE funcionario;
 
 GRANT EXECUTE ON FUNCTION cadastrar(varchar, json) TO funcionario;
 GRANT EXECUTE ON FUNCTION atualizar(nome_tabela varchar, chave varchar, valor varchar, campos json) TO funcionario;
+GRANT EXECUTE ON FUNCTION listar_cesta_basica() TO funcionario;
+GRANT EXECUTE ON FUNCTION inserir_item_cesta_basica(nome_alimento varchar, qtd int) TO funcionario;
+GRANT EXECUTE ON FUNCTION realizar_doacao(cpf_benfeitor varchar, alimentos json, id_doacao int) TO funcionario;
+GRANT EXECUTE ON FUNCTION receber_doacao(cpf_socio varchar, alimentos json, id_recebimento int) TO funcionario;
+GRANT EXECUTE ON FUNCTION informar_falecimento_socio(cpf varchar) TO funcionario;
+
 
 GRANT SELECT ON socio TO funcionario;
 GRANT SELECT ON benfeitor TO funcionario;
@@ -90,7 +96,6 @@ CREATE ROLE medico;
 GRANT EXECUTE ON FUNCTION listar_consultas_medico(_nome_medico varchar, data_consulta date) TO medico;
 CREATE USER heloisa PASSWORD 'postgres01';
 GRANT medico TO heloisa;
-
 
 CREATE ROLE doacoes;
 GRANT EXECUTE ON FUNCTION relatorio_doacoes_feitas_eventos(campos json) TO doacoes;

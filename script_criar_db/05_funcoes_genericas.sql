@@ -164,16 +164,15 @@ $$
             RETURN;
 
         ELSEIF lower_nome_tabela = 'cesta_basica' then
-            IF campos->'item_cesta' IS NULL THEN
+            IF campos->'nome_alimento' IS NULL THEN
                 RAISE ERROR_IN_ASSIGNMENT USING
-                MESSAGE = 'Informe a chave [item_cesta] para usar a função "inserir_item_cesta" desta tabela';
-            ELSEIF campos->'quantidade' IS NULL THEN
+                MESSAGE = 'Informe a chave [nome_alimento] para usar a função "inserir_item_cesta" desta tabela';
+            ELSEIF campos->'qtd' IS NULL THEN
                 RAISE ERROR_IN_ASSIGNMENT USING
-                MESSAGE = 'Informe a chave [quantidade] para usar a função "inserir_item_cesta" desta tabela';
+                MESSAGE = 'Informe a chave [qtd] para usar a função "inserir_item_cesta" desta tabela';
             end if;
-            string := (campos->'item_cesta')::varchar;
-            SELECT campos::jsonb - 'cpf_benfeitor' INTO campos;
-            RETURN QUERY SELECT inserir_item_cesta_basica(trim('"' FROM string::text), (campos->>'quantidade')::int);
+            string := (campos->>'nome_alimento')::varchar;
+            RETURN QUERY SELECT inserir_item_cesta_basica(string, (campos->>'qtd')::int);
             RETURN;
 
         ELSE

@@ -203,6 +203,21 @@ SELECT multi_cadastrar('ALIMENTO', json '[
         "unidade_de_medida": "G"}
     ]');
 
+-- CESTA BASICA
+SELECT multi_cadastrar('CESTA_BASICA', json '[
+    { "nome_alimento": "arroz", "qtd": 5},
+    { "nome_alimento": "oleo", "qtd": 1},
+    { "nome_alimento": "feijao", "qtd": 1},
+    { "nome_alimento": "leite", "qtd": 2},
+    { "nome_alimento": "acucar", "qtd": 2},
+    { "nome_alimento": "macarrao", "qtd": 2},
+    { "nome_alimento": "sardinha", "qtd": 2},
+    { "nome_alimento": "biscoito", "qtd": 2},
+    { "nome_alimento": "refresco", "qtd": 2},
+    { "nome_alimento": "farinha", "qtd": 1},
+    { "nome_alimento": "sal", "qtd": 1},
+    { "nome_alimento": "cafe", "qtd": 1}]');
+
 -- MEDICO
 SELECT multi_cadastrar('MEDICO', json '[
     {

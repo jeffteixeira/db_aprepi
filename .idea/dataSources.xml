@@ -19,5 +19,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/db_aprepi_02</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="DB_APREPI_02[FUNCIONARIO]" uuid="9b2b604e-f17d-4118-ba16-50728bd311a0">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/db_aprepi_02</jdbc-url>
+    </data-source>
   </component>
 </project>
