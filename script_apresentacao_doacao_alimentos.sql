@@ -6,6 +6,12 @@ select cadastrar('ALIMENTO', json '{
     "unidade_de_medida": "KG"
 }');
 
+
+select buscar_cod_alimento('arroz');
+
+select deletar('ALIMENTO', 'nome', 'arroz');
+select atualizar('ALIMENTO', 'cod_alimento', '14', json '{"nome": "a"}');
+
 select listar_alimentos();
 
 -- DOACAO

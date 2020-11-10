@@ -385,3 +385,188 @@ returns table(nome varchar(32), lucro float) as $$
     end;
 $$ language plpgsql security definer;
 
+
+-- EVENTO(S) MAIS LUCRATIVO(S) E MENOS LUCRATIVO(S)
+
+create or replace function obter_eventos_menos_lucrativos()
+returns table(nome varchar(32), lucro float) as $$
+    begin
+	return query select evento.nome, (arrecadacao - custo) as lucro from evento
+	where arrecadacao - custo in (select min(arrecadacao - custo) from evento);
+    end;
+$$ language plpgsql security definer;
+
+-- QUANTIDADE E PERCENTUAL DE GÊNERO POR TABELA(SÓCIO, BENFEITOR, MÉDICO E VOLUNTÁRIO)
+
+create or replace function obter_quantidade_por_genero(nome_tabela varchar(10), gen varchar(10))
+returns table(genero varchar, quantidade int) as $$
+    begin
+	if gen ilike 'masculino' or gen ilike 'feminino' or gen ilike 'outro' then
+		if nome_tabela ilike 'socio' then
+			return query select socio.genero, count(*)::int as quantidade from socio group by socio.genero having socio.genero ilike gen;
+		elseif nome_tabela ilike 'benfeitor' then
+			return query select benfeitor.genero, count(*)::int as quantidade from benfeitor group by benfeitor.genero having benfeitor.genero ilike gen;
+		elseif nome_tabela ilike 'medico' then
+			return query select medico.genero, count(*)::int as quantidade from medico group by medico.genero having medico.genero ilike gen;
+		elseif nome_tabela ilike 'voluntario' then
+			return query select medico.genero, count(*)::int as quantidade from voluntario group by medico.genero having medico.genero ilike gen;
+		else
+			raise exception 'Nome da tabela inválido!';
+		end if;
+	else
+		raise exception 'Gênero inválido!';
+	end if;
+    end;
+$$ language plpgsql security definer;
+
+create or replace function obter_percentual_por_genero(nome_tabela varchar, gen varchar)
+returns table(genero varchar, percentual float) as $$
+    declare
+	total float;
+    begin
+	if gen ilike 'masculino' or gen ilike 'feminino' or gen ilike 'outro' then
+	    if nome_tabela ilike 'socio' then
+	        select count(*) into total from socio;
+	        return query select socio.genero, (count(*) / total * 100) as percentual
+		from socio group by socio.genero having socio.genero ilike gen;
+	    elseif nome_tabela ilike 'benfeitor' then
+		select count(*) into total from benfeitor;
+	        return query select benfeitor.genero, (count(*) / total * 100) as percentual
+		from benfeitor group by benfeitor.genero having benfeitor.genero ilike gen;
+   	    elseif nome_tabela ilike 'medico' then
+		select count(*) into total from medico;
+		return query select medico.genero, (count(*) / total * 100) as percentual
+		from medico group by medico.genero having medico.genero ilike gen;
+	    elseif nome_tabela ilike 'voluntario' then
+	        select count(*) into total from voluntario;
+   	        return query select medico.genero, (count(*) / total * 100) as percentual
+		from voluntario group by medico.genero having medico.genero ilike gen;
+	    else
+		raise exception 'Nome da tabela inválido!';
+	    end if;
+	else
+	    raise exception 'Gênero inválido!';
+	end if;
+    end;
+$$ language plpgsql security definer;
+
+
+-- MÉDICO QUE MAIS E QUE MENOS ATENDEU PACIENTES(GERAL E EM UM PERÍODO)
+
+create or replace function obter_medicos_que_mais_atenderam_geral()
+returns table(nome varchar, quantidade int) as $$
+    begin
+	return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+	natural join consulta group by medico.nome
+	having count(*) in (select max(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+	from medico natural join medico_especialidade natural join consulta group by medico.nome) as dados);
+    end;
+$$ language plpgsql security definer;
+
+create or replace function obter_medicos_que_mais_atenderam_periodo(data_inicial date, data_final date)
+returns table(nome varchar, quantidade int) as $$
+    begin
+	if data_final >= data_inicial then
+	    return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+	    natural join consulta where dt_consulta between data_inicial and data_final group by medico.nome
+	    having count(*) in (select max(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+	    from medico natural join medico_especialidade natural join consulta where dt_consulta between data_inicial and data_final
+	    group by medico.nome) as dados);
+	else
+	    raise exception 'A data final deve ser maior ou igual à data inicial';
+	end if;
+    end;
+$$ language plpgsql security definer;
+
+create or replace function obter_medicos_que_menos_atenderam_geral()
+returns table(nome varchar, quantidade int) as $$
+    begin
+	return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+	natural join consulta group by medico.nome
+	having count(*) in (select min(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+	from medico natural join medico_especialidade natural join consulta group by medico.nome) as dados);
+    end;
+$$ language plpgsql security definer;
+
+create or replace function obter_medicos_que_menos_atenderam_periodo(data_inicial date, data_final date)
+returns table(nome varchar, quantidade int) as $$
+    begin
+	if data_final >= data_inicial then
+	    return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+	    natural join consulta where dt_consulta between data_inicial and data_final group by medico.nome
+	    having count(*) in (select min(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+	    from medico natural join medico_especialidade natural join consulta where dt_consulta between data_inicial and data_final
+	    group by medico.nome) as dados);
+	else
+	    raise exception 'A data final deve ser maior ou igual à data inicial';
+    end;
+$$ language plpgsql security definer;
+
+-- BENFEITOR QUE DOOU O MAIOR VALOR(GERAL)
+
+create or replace function obter_benfeitores_maior_doacao_geral()
+returns table(nome varchar, valor_doado float) as $$
+    begin
+        return query select benfeitor.nome, valor_doado from benfeitor natural join benfeitor_evento where
+        valor_doado in (select max(valor_doado) from benfeitor_evento);
+    end;
+$$ language plpgsql security definer;
+
+create or replace function obter_benfeitores_menor_doacao_geral()
+returns table(nome varchar, valor_doado float) as $$
+    begin
+        return query select benfeitor.nome, valor_doado from benfeitor natural join benfeitor_evento where
+        valor_doado in (select min(valor_doado) from benfeitor_evento);
+    end;
+$$ language plpgsql security definer;
+
+-- FILTRAR POR NOME(COMEÇO, MEIO E FIM) - TODAS AS TABELAS
+create or replace function filtrar_por_nome(nome_tabela varchar(30), nome_procurado varchar(120), localizacao varchar(10))
+returns table (nome varchar(120)) as
+$$
+	declare
+		nome_conca varchar(120);
+		forbidden_tables varchar[] := '{"consulta", ' ||
+                                          '"especialidade", ' ||
+                                          '"socio", ' ||
+                                          '"benfeitor", ' ||
+                                          '"voluntário", ' ||
+                                          '"funcao", ' ||
+                                          '"alimento", ' ||
+                                          '"recebimento", ' ||
+                                          '"doacao", ' ||
+                                          '"item_recebimento", ' ||
+                                          '"item_doacao", ' ||
+                                          '"medico", ' ||
+                                          '"medico_especialidade", ' ||
+                                          '"voluntario_funcao", ' ||
+                                          '"evento", ' ||
+                                          '"cesta_basica", ' ||
+                                          '"benfeitor_evento"}';
+	begin
+		if (nome_procurado is not null) and (nome_procurado not ilike '') then
+
+			if (nome_tabela ilike any(forbidden_tables)) then
+				if (localizacao ilike 'comeco') then
+					select nome_procurado || '%' into nome_conca;
+				elseif (localizacao ilike 'meio') then
+					select '%' || nome_procurado || '%' into nome_conca;
+				elseif (localizacao ilike 'fim') then
+					select '%' || nome_procurado into nome_conca;
+				else
+					RAISE NO_DATA_FOUND USING MESSAGE = 'Digite uma localização válida("comeco", "meio" ou "fim")';
+				end if;
+
+				return query execute format('select nome from %I where nome ilike %L ',nome_tabela,nome_conca);
+
+			else
+				RAISE NO_DATA_FOUND USING MESSAGE = 'Tabela não encontrada';
+			end if;
+
+		else
+			RAISE NO_DATA_FOUND USING MESSAGE = 'O campo "nome procurado" não pode ser nulo';
+		end if;
+
+	end;
+$$ language plpgsql security definer;
+

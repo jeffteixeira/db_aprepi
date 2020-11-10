@@ -19,13 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33f9c5df-a2de-4f5b-b325-cfa0eade079f" name="Default Changelist" comment="correcao relatorios de doacao">
-      <change afterPath="$PROJECT_DIR$/script_apresentacao_evento.sql" afterDir="false" />
+    <list default="true" id="33f9c5df-a2de-4f5b-b325-cfa0eade079f" name="Default Changelist" comment="script de evento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_criar_db/03_evento.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/03_evento.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_criar_db/04_consulta_medico.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/04_consulta_medico.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_criar_db/05_funcoes_genericas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/05_funcoes_genericas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_criar_db/07_permissoes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/07_permissoes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_apresentacao_doacao_alimentos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_apresentacao_doacao_alimentos.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_criar_db/06_relatorios.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_criar_db/06_relatorios.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,37 +84,38 @@
     <MESSAGE value="atualizacao 03_evento.sql e permissoes.sql" />
     <MESSAGE value="atualizacao scripts de recriacao do bd" />
     <MESSAGE value="correcao relatorios de doacao" />
-    <option name="LAST_COMMIT_MESSAGE" value="correcao relatorios de doacao" />
+    <MESSAGE value="script de evento" />
+    <option name="LAST_COMMIT_MESSAGE" value="script de evento" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="321" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604951790281">
+    <state x="321" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605029387872">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="321" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604951790281" />
+    <state x="321" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1605029387872" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1604143399669">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604143399669" />
-    <state width="1103" height="179" key="GridCell.Tab.0.bottom" timestamp="1604965131305">
+    <state width="1103" height="179" key="GridCell.Tab.0.bottom" timestamp="1605030784287">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604965131305" />
-    <state width="1103" height="179" key="GridCell.Tab.0.center" timestamp="1604965131305">
+    <state width="1103" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605030784287" />
+    <state width="1103" height="179" key="GridCell.Tab.0.center" timestamp="1605030784281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604965131305" />
-    <state width="1103" height="179" key="GridCell.Tab.0.left" timestamp="1604965131305">
+    <state width="1103" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605030784281" />
+    <state width="1103" height="179" key="GridCell.Tab.0.left" timestamp="1605030784281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604965131305" />
-    <state width="1103" height="179" key="GridCell.Tab.0.right" timestamp="1604965131305">
+    <state width="1103" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605030784281" />
+    <state width="1103" height="179" key="GridCell.Tab.0.right" timestamp="1605030784281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1103" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604965131305" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604955629548">
+    <state width="1103" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605030784281" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604965335121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604955629548" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604965335121" />
     <state x="493" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1604253786127">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
