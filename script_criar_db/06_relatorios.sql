@@ -372,8 +372,8 @@ $$ language plpgsql SECURITY DEFINER;
 create or replace function obter_eventos_mais_lucrativos()
 returns table(nome varchar(32), lucro float) as $$
     begin
-	return query select evento.nome, (arrecadacao - custo) as lucro from evento
-	where arrecadacao - custo in (select max(arrecadacao - custo) from evento);
+		return query select evento.nome, (arrecadacao - custo) as lucro from evento
+		where arrecadacao - custo in (select max(arrecadacao - custo) from evento);
     end;
 $$ language plpgsql security definer;
 
@@ -391,8 +391,8 @@ $$ language plpgsql security definer;
 create or replace function obter_eventos_menos_lucrativos()
 returns table(nome varchar(32), lucro float) as $$
     begin
-	return query select evento.nome, (arrecadacao - custo) as lucro from evento
-	where arrecadacao - custo in (select min(arrecadacao - custo) from evento);
+		return query select evento.nome, (arrecadacao - custo) as lucro from evento
+		where arrecadacao - custo in (select min(arrecadacao - custo) from evento);
     end;
 $$ language plpgsql security definer;
 
@@ -401,52 +401,52 @@ $$ language plpgsql security definer;
 create or replace function obter_quantidade_por_genero(nome_tabela varchar(10), gen varchar(10))
 returns table(genero varchar, quantidade int) as $$
     begin
-	if gen ilike 'masculino' or gen ilike 'feminino' or gen ilike 'outro' then
-		if nome_tabela ilike 'socio' then
-			return query select socio.genero, count(*)::int as quantidade from socio group by socio.genero having socio.genero ilike gen;
-		elseif nome_tabela ilike 'benfeitor' then
-			return query select benfeitor.genero, count(*)::int as quantidade from benfeitor group by benfeitor.genero having benfeitor.genero ilike gen;
-		elseif nome_tabela ilike 'medico' then
-			return query select medico.genero, count(*)::int as quantidade from medico group by medico.genero having medico.genero ilike gen;
-		elseif nome_tabela ilike 'voluntario' then
-			return query select medico.genero, count(*)::int as quantidade from voluntario group by medico.genero having medico.genero ilike gen;
+		if gen ilike 'masculino' or gen ilike 'feminino' or gen ilike 'outro' then
+			if nome_tabela ilike 'socio' then
+				return query select socio.genero, count(*)::int as quantidade from socio group by socio.genero having socio.genero ilike gen;
+			elseif nome_tabela ilike 'benfeitor' then
+				return query select benfeitor.genero, count(*)::int as quantidade from benfeitor group by benfeitor.genero having benfeitor.genero ilike gen;
+			elseif nome_tabela ilike 'medico' then
+				return query select medico.genero, count(*)::int as quantidade from medico group by medico.genero having medico.genero ilike gen;
+			elseif nome_tabela ilike 'voluntario' then
+				return query select medico.genero, count(*)::int as quantidade from voluntario group by medico.genero having medico.genero ilike gen;
+			else
+				raise exception 'Nome da tabela inválido!';
+			end if;
 		else
-			raise exception 'Nome da tabela inválido!';
+			raise exception 'Gênero inválido!';
 		end if;
-	else
-		raise exception 'Gênero inválido!';
-	end if;
     end;
 $$ language plpgsql security definer;
 
 create or replace function obter_percentual_por_genero(nome_tabela varchar, gen varchar)
 returns table(genero varchar, percentual float) as $$
     declare
-	total float;
+		total float;
     begin
-	if gen ilike 'masculino' or gen ilike 'feminino' or gen ilike 'outro' then
-	    if nome_tabela ilike 'socio' then
-	        select count(*) into total from socio;
-	        return query select socio.genero, (count(*) / total * 100) as percentual
-		from socio group by socio.genero having socio.genero ilike gen;
-	    elseif nome_tabela ilike 'benfeitor' then
-		select count(*) into total from benfeitor;
-	        return query select benfeitor.genero, (count(*) / total * 100) as percentual
-		from benfeitor group by benfeitor.genero having benfeitor.genero ilike gen;
-   	    elseif nome_tabela ilike 'medico' then
-		select count(*) into total from medico;
-		return query select medico.genero, (count(*) / total * 100) as percentual
-		from medico group by medico.genero having medico.genero ilike gen;
-	    elseif nome_tabela ilike 'voluntario' then
-	        select count(*) into total from voluntario;
-   	        return query select medico.genero, (count(*) / total * 100) as percentual
-		from voluntario group by medico.genero having medico.genero ilike gen;
-	    else
-		raise exception 'Nome da tabela inválido!';
-	    end if;
-	else
-	    raise exception 'Gênero inválido!';
-	end if;
+		if gen ilike 'masculino' or gen ilike 'feminino' or gen ilike 'outro' then
+			if nome_tabela ilike 'socio' then
+				select count(*) into total from socio;
+				return query select socio.genero, (count(*) / total * 100) as percentual
+				from socio group by socio.genero having socio.genero ilike gen;
+			elseif nome_tabela ilike 'benfeitor' then
+				select count(*) into total from benfeitor;
+				return query select benfeitor.genero, (count(*) / total * 100) as percentual
+				from benfeitor group by benfeitor.genero having benfeitor.genero ilike gen;
+			elseif nome_tabela ilike 'medico' then
+				select count(*) into total from medico;
+				return query select medico.genero, (count(*) / total * 100) as percentual
+				from medico group by medico.genero having medico.genero ilike gen;
+			elseif nome_tabela ilike 'voluntario' then
+				select count(*) into total from voluntario;
+				return query select medico.genero, (count(*) / total * 100) as percentual
+				from voluntario group by medico.genero having medico.genero ilike gen;
+			else
+				raise exception 'Nome da tabela inválido!';
+			end if;
+		else
+			raise exception 'Gênero inválido!';
+		end if;
     end;
 $$ language plpgsql security definer;
 
@@ -456,49 +456,50 @@ $$ language plpgsql security definer;
 create or replace function obter_medicos_que_mais_atenderam_geral()
 returns table(nome varchar, quantidade int) as $$
     begin
-	return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
-	natural join consulta group by medico.nome
-	having count(*) in (select max(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
-	from medico natural join medico_especialidade natural join consulta group by medico.nome) as dados);
+		return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+		natural join consulta group by medico.nome having count(*) in (select max(quantidade_atendimentos)
+		from (select medico.nome, count(*) as quantidade_atendimentos from medico natural join medico_especialidade
+		natural join consulta group by medico.nome) as dados);
     end;
 $$ language plpgsql security definer;
 
 create or replace function obter_medicos_que_mais_atenderam_periodo(data_inicial date, data_final date)
 returns table(nome varchar, quantidade int) as $$
     begin
-	if data_final >= data_inicial then
-	    return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
-	    natural join consulta where dt_consulta between data_inicial and data_final group by medico.nome
-	    having count(*) in (select max(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
-	    from medico natural join medico_especialidade natural join consulta where dt_consulta between data_inicial and data_final
-	    group by medico.nome) as dados);
-	else
-	    raise exception 'A data final deve ser maior ou igual à data inicial';
-	end if;
+		if data_final >= data_inicial then
+			return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+			natural join consulta where dt_consulta between data_inicial and data_final group by medico.nome
+			having count(*) in (select max(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+			from medico natural join medico_especialidade natural join consulta where dt_consulta between data_inicial and data_final
+			group by medico.nome) as dados);
+		else
+			raise exception 'A data final deve ser maior ou igual à data inicial';
+		end if;
     end;
 $$ language plpgsql security definer;
 
 create or replace function obter_medicos_que_menos_atenderam_geral()
 returns table(nome varchar, quantidade int) as $$
     begin
-	return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
-	natural join consulta group by medico.nome
-	having count(*) in (select min(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
-	from medico natural join medico_especialidade natural join consulta group by medico.nome) as dados);
+		return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+		natural join consulta group by medico.nome
+		having count(*) in (select min(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+		from medico natural join medico_especialidade natural join consulta group by medico.nome) as dados);
     end;
 $$ language plpgsql security definer;
 
 create or replace function obter_medicos_que_menos_atenderam_periodo(data_inicial date, data_final date)
 returns table(nome varchar, quantidade int) as $$
     begin
-	if data_final >= data_inicial then
-	    return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
-	    natural join consulta where dt_consulta between data_inicial and data_final group by medico.nome
-	    having count(*) in (select min(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
-	    from medico natural join medico_especialidade natural join consulta where dt_consulta between data_inicial and data_final
-	    group by medico.nome) as dados);
-	else
-	    raise exception 'A data final deve ser maior ou igual à data inicial';
+		if data_final >= data_inicial then
+			return query select medico.nome, count(*)::int as quantidade from medico natural join medico_especialidade
+			natural join consulta where dt_consulta between data_inicial and data_final group by medico.nome
+			having count(*) in (select min(quantidade_atendimentos) from (select medico.nome, count(*) as quantidade_atendimentos
+			from medico natural join medico_especialidade natural join consulta where dt_consulta between data_inicial and data_final
+			group by medico.nome) as dados);
+		else
+			raise exception 'A data final deve ser maior ou igual à data inicial';
+		end if;
     end;
 $$ language plpgsql security definer;
 
